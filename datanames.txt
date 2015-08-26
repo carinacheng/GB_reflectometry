@@ -72,7 +72,7 @@ Feed Alone, 2:1 Balun w/New Cable
 Feed in Cage, 4:1 Balun w/New Cable
 
     FC_NC41             feed in cage on ground
-    FC_NC41_AB              feed in cage on echosorb
+    FC_NC41_AB          feed in cage on echosorb
 
 Feed in Cage, 2:1 Balun w/New Cable
 
