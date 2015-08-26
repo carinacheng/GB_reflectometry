@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.7.17)  26 AUG 2015 14:00
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.7.17)  26 AUG 2015 14:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -10,7 +10,7 @@ Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, ba
 sque, danish, dutch, ukenglish, usenglishmax, finnish, french, german, ngerman,
  swissgerman, hungarian, italian, bokmal, nynorsk, polish, portuguese, spanish,
  swedish, loaded.
-(/Users/carinacheng/Library/texmf/tex/latex/misc/aastex.cls
+(./aastex.cls
 Document Class: aastex 2005/06/22 5.2/AAS markup document class
 Class aastex Info: Original \LaTeX2.09 style by Chris Biemesderfer (chris@seago
 at.com). Adapted to \LaTeXe by A. Ogawa (ogawa@teleport.com) on input line 83.
@@ -161,190 +161,23 @@ Type  H <return>  for immediate help.
 l.99 \ProcessOptions\par
                         
 ? 
-For additional information on amsmath, use the `?' option.
-(/usr/local/texlive/2012basic/texmf-dist/tex/latex/amsmath/amstext.sty
-Package: amstext 2000/06/29 v2.01
+/usr/local/texlive/2012basic/texmf-dist/tex/latex/amsmath/amsmath.sty:99: Emerg
+ency stop.
+ ...                                              
+                                                  
+l.99 \ProcessOptions\par
+                        
+The option `margin=0.5in' was not declared in package `amsmath', perhaps you
+misspelled its name. Try typing  <return>  to proceed.
 
-(/usr/local/texlive/2012basic/texmf-dist/tex/latex/amsmath/amsgen.sty
-File: amsgen.sty 1999/11/30 v2.0
-\@emptytoks=\toks19
-\ex@=\dimen123
-))
-(/usr/local/texlive/2012basic/texmf-dist/tex/latex/amsmath/amsbsy.sty
-Package: amsbsy 1999/11/29 v1.2d
-\pmbraise@=\dimen124
-)
-(/usr/local/texlive/2012basic/texmf-dist/tex/latex/amsmath/amsopn.sty
-Package: amsopn 1999/12/14 v2.01 operator names
-)
-\inf@bad=\count100
-LaTeX Info: Redefining \frac on input line 211.
-\uproot@=\count101
-\leftroot@=\count102
-LaTeX Info: Redefining \overline on input line 307.
-\classnum@=\count103
-\DOTSCASE@=\count104
-LaTeX Info: Redefining \ldots on input line 379.
-LaTeX Info: Redefining \dots on input line 382.
-LaTeX Info: Redefining \cdots on input line 467.
-\Mathstrutbox@=\box32
-\strutbox@=\box33
-\big@size=\dimen125
-LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
-\macc@depth=\count105
-\c@MaxMatrixCols=\count106
-\dotsspace@=\muskip10
-\c@parentequation=\count107
-\dspbrk@lvl=\count108
-\tag@help=\toks20
-\row@=\count109
-\column@=\count110
-\maxfields@=\count111
-\andhelp@=\toks21
-\eqnshift@=\dimen126
-\alignsep@=\dimen127
-\tagshift@=\dimen128
-\tagwidth@=\dimen129
-\totwidth@=\dimen130
-\lineht@=\dimen131
-\@envbody=\toks22
-\multlinegap=\skip47
-\multlinetaggap=\skip48
-\mathdisplay@stack=\toks23
-LaTeX Info: Redefining \[ on input line 2666.
-LaTeX Info: Redefining \] on input line 2667.
-)
-(./hyphenat.sty
-Package: hyphenat 1999/02/13 v2.3 hyphenation utilities
-\langwohyphens=\language21
-LaTeX Info: Redefining \_ on input line 34.
-) (./Memo.aux)
-\openout1 = `Memo.aux'.
-
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-
-(/usr/local/texlive/2012basic/texmf-dist/tex/context/base/supp-pdf.mkii
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count112
-\scratchdimen=\dimen132
-\scratchbox=\box34
-\nofMPsegments=\count113
-\nofMParguments=\count114
-\everyMPshowfont=\toks24
-\MPscratchCnt=\count115
-\MPscratchDim=\dimen133
-\MPnumerator=\count116
-\makeMPintoPDFobject=\count117
-\everyMPtoPDFconversion=\toks25
-) (/usr/local/texlive/2012basic/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
-Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
-)
-
-(/usr/local/texlive/2012basic/texmf-dist/tex/generic/oberdiek/ifluatex.sty
-Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
-Package ifluatex Info: LuaTeX not detected.
-)
-Package pdftexcmds Info: LuaTeX not detected.
-Package pdftexcmds Info: \pdf@primitive is available.
-Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode found.
-)
-(/usr/local/texlive/2012basic/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
-Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
-
-(/usr/local/texlive/2012basic/texmf-dist/tex/latex/oberdiek/grfext.sty
-Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
-
-(/usr/local/texlive/2012basic/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
-Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
-)) (/usr/local/texlive/2012basic/texmf-dist/tex/latex/oberdiek/kvoptions.sty
-Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
-
-(/usr/local/texlive/2012basic/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
-Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
-
-(/usr/local/texlive/2012basic/texmf-dist/tex/generic/oberdiek/etexcmds.sty
-Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
-Package etexcmds Info: Could not find \expanded.
-(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
-(etexcmds)             that some package has redefined \expanded.
-(etexcmds)             In the latter case, load this package earlier.
-)))
-Package grfext Info: Graphics extension search list:
-(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
-G,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 452.
-
-(/usr/local/texlive/2012basic/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
-e
-))
-AAS preprint substyle, v5.2 <12 Dec 2003>.
-*geometry* driver: auto-detecting
-*geometry* detected driver: pdftex
-*geometry* verbose mode - [ preamble ] result:
-* driver: pdftex
-* paper: <default>
-* layout: <same size as paper>
-* layoutoffset:(h,v)=(0.0pt,0.0pt)
-* modes: 
-* h-part:(L,W,R)=(36.135pt, 542.02501pt, 36.135pt)
-* v-part:(T,H,B)=(36.135pt, 722.7pt, 36.135pt)
-* \paperwidth=614.295pt
-* \paperheight=794.96999pt
-* \textwidth=542.02501pt
-* \textheight=722.7pt
-* \oddsidemargin=-36.135pt
-* \evensidemargin=-36.135pt
-* \topmargin=-71.97505pt
-* \headheight=10.84006pt
-* \headsep=25.0pt
-* \topskip=12.0pt
-* \footskip=30.0pt
-* \marginparwidth=0.0pt
-* \marginparsep=10.0pt
-* \columnsep=10.0pt
-* \skip\footins=20.66669pt plus 5.16667pt minus 2.58333pt
-* \hoffset=0.0pt
-* \voffset=0.0pt
-* \mag=1000
-* \@twocolumnfalse
-* \@twosidefalse
-* \@mparswitchfalse
-* \@reversemarginfalse
-* (1in=72.27pt=25.4mm, 1cm=28.453pt)
-
-[1
-
-{/usr/local/texlive/2012basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-(./Memo.aux) ) 
+ 
 Here is how much of TeX's memory you used:
- 3742 strings out of 494578
- 48648 string characters out of 3168574
- 113839 words of memory out of 3000000
- 6936 multiletter control sequences out of 15000+200000
- 4850 words of font info for 18 fonts, out of 3000000 for 9000
+ 2504 strings out of 494578
+ 31670 string characters out of 3168574
+ 87682 words of memory out of 3000000
+ 5753 multiletter control sequences out of 15000+200000
+ 3938 words of font info for 15 fonts, out of 3000000 for 9000
  314 hyphenation exceptions out of 8191
- 38i,4n,32p,285b,131s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/local/texlive/2012basic/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmbx12.pfb></usr/local/texlive/2012basic/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmr12.pfb>
-Output written on Memo.pdf (1 page, 25391 bytes).
-PDF statistics:
- 16 PDF objects out of 1000 (max. 8388607)
- 10 compressed objects within 1 object stream
- 0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+ 34i,0n,32p,285b,36s stack positions out of 5000i,500n,10000p,200000b,50000s
+/usr/local/texlive/2012basic/texmf-dist/tex/latex/amsmath/amsmath.sty:99:  ==> 
+Fatal error occurred, no output PDF file produced!
