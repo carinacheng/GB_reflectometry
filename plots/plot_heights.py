@@ -36,12 +36,13 @@ valids = [6,9,12,15]
 for i,v in enumerate(valids):
     fq,amps = fromcsv(file_base + str(v) + amp_end)
     fq,phs = fromcsv(file_base + str(v) + phs_end)
-    dw, d, tau = take_delay(amps, phs, fq)
-    p.plot(tau, 10*n.log10(n.abs(dw)**2), linewidth=3, label=('%s'%v)+'ft')
+    bandwidth = n.where(n.logical_and(fq>.05 ,fq<.25)) #HERA bandwidth
+    dw, d, tau = take_delay(amps[bandwidth], phs[bandwidth], fq[bandwidth])
+    p.plot(tau, 10*n.log10(n.abs(dw)**2), linewidth=2, label=('%s'%v)+'ft')
 p.xlim(-30,350)
 p.ylim(-100, 1)
-p.vlines(60, -100,100, linestyle='--', linewidth=3)
-p.hlines(-60,-100 ,500, linestyle='--', linewidth=3)
+p.vlines(60, -100,100, linestyle='--', linewidth=2)
+p.hlines(-60,-100 ,500, linestyle='--', linewidth=2)
 p.xlabel('delay (ns)')
 p.ylabel('return loss (dB)')
 p.grid(1)
