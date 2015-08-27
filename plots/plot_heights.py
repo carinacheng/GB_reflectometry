@@ -27,19 +27,25 @@ def take_delay(db, ph, fq, window='blackman-harris'):
     return n.fft.fftshift(_dw), n.fft.fftshift(_d), n.fft.fftshift(tau)
 
 #file_base = sys.argv[1]
-file_base = '../alldata/NC41_'
+#file_base = '../alldata/NC41_'
+file_base = '../alldata/F'
 amp_end = '_DB.csv'
 phs_end = '_P.csv'
 
-valids = [6,9,12,15]
+#valids = [6,9,12,15]
+#valids = ['A_NC41_3','A_NC41_AB_3','C_NC41','C_NC41_AB','C_NC41_UD']
+#labels = ['feed alone 3ft above ground','feed alone 3ft above absorber','feed in cage on ground','feed in cage on absorber','feed in cage upsidedown']
+valids = ['C_NC41','C_NC41_AB']
+labels = ['feed in cage on ground','feed in cage on absorber']
 
 for i,v in enumerate(valids):
     fq,amps = fromcsv(file_base + str(v) + amp_end)
     fq,phs = fromcsv(file_base + str(v) + phs_end)
     #bandwidth = n.where(n.logical_and(fq>.05 ,fq<.25)) #HERA bandwidth
-    bandwidth = n.where(n.logical_and(fq>.1,fq<.2)) #PAPER bandwidth
+    #bandwidth = n.where(n.logical_and(fq>.1,fq<.2)) #PAPER bandwidth
+    bandwidth = n.where(n.logical_and(fq>.05,fq<.5)) #full bandwidth
     dw, d, tau = take_delay(amps[bandwidth], phs[bandwidth], fq[bandwidth])
-    p.plot(tau, 10*n.log10(n.abs(dw)**2), linewidth=2, label=('%s'%v)+'ft')
+    p.plot(tau, 10*n.log10(n.abs(dw)**2), linewidth=2, label=labels[i])#('%s'%v)+'ft')
 p.xlim(-30,350)
 p.ylim(-100, 1)
 p.vlines(60, -100,100, linestyle='--', linewidth=2)
