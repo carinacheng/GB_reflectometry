@@ -17,7 +17,8 @@
 There are several different sources of instrumental chromaticity for an interferometer such as HERA that each introduce unwanted systematics in data. One such source results from the antenna, which can introduce non-spectrally smooth structure in data due to delays associated with internal signal reflections. The HERA element was designed to minimize this structure - the contamination outside the foreground `wedge' - so that the expected level of the 21cm reionization signal that we are interested in still dominates this region. In order to achieve this, a chromaticity specification of -60dB at 60ns was implemented in the HERA element design, setting a constraint on the level of reflections. In other words, when a signal that originates at the feed re-enters the feed after a time delay of 60ns, it must be attenuated by at least 60dB. 
 
 Understanding the nature of antenna reflections in the HERA dish is of the utmost importance in characterizing the performance of the dish. As HERA progresses as an experiment, it is necessary to build optimal dishes that promise to minimize the challenges of chromaticity in our quest for the Epoch of Reioinization.
-\section{Theory}
+
+\section{Theory}{\label{sec:theory}}
 
 *what is the measurement we are actually doing. 
 
@@ -51,7 +52,9 @@ the amplitude of the power and phase information are saved. Our
 measurements are taken for a frequency bandwidth of 50 to 500MHz. 
 
 Measurements are transformed into the delay domain during post-processing so that window functions
-can be used in the Fourier transform. Without a window function, taking the Fourier transform of a finite data series (such as the return loss over a finite bandwidth), which can be interpreted as a square window function, is equivalent to convolving the Fourier transformed data with a sinc function. This results in excess power at high delays due to the sidelobes in the sinc function. Consequently, we have chosen to use a Blackman-Harris window function when moving into the delay domain. The effectiveness of this window function compared to a square window function is illustrated in Figure \ref{fig:window}.
+can be used in the Fourier transform. Without a window function, taking the Fourier transform of a finite data series (such as the return loss over a finite bandwidth), which can be interpreted as a square window function, is equivalent to convolving the Fourier transformed data with a $sinc$ function. This results in excess power at high delays due to the sidelobes in the $sinc$ function. Consequently, we have chosen to use a Blackman-Harris window function when moving into the delay domain. The effectiveness of this window function compared to a square window function is illustrated in Figure \ref{fig:window}.
+
+As mentioned in Section \ref{sec:theory}, there is a mis-match in amplitude between the reflections that we measure (originating from the FieldFox pulse) and reflections produced by sky signal. To compensate, we multiply our entire windowed delay spectrum by the DC component of the un-windowed delay spectrum.
 
 \begin{figure}
 \centering
@@ -60,8 +63,7 @@ can be used in the Fourier transform. Without a window function, taking the Four
 \label{fig:heradish}
 \end{figure}
 
-
-\section{Measurements}
+\section{Results}
 
 We begin with a reflectometry measurement with the feed suspended at 12 ft (distance between the balun and top of the central hub) for a frequency bandwidth of 50MHz - 500MHz.
 
@@ -103,8 +105,6 @@ Finally, more robust measurements are taken with the feed at varying heights (6f
 \caption{Delay plots produced using a Blackman-Harris window function for different lone feed configurations and the PAPER bandwidth.}
 \end{figure}
 
-
-\section{Discussion}
 
 \section{Conclusion}
 
