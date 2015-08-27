@@ -47,9 +47,13 @@ We begin with a reflectometry measurement with the feed suspended at 12 ft (dist
 \caption{Top: Amplitude and phase of the reflected signal. Bottom: Real part and imaginary part of the reflected signal.}
 \end{figure}
 
-Next, we Fourier-transform along the frequency axis for 3 selected bandwidths: 50MHz-250MHz (the HERA bandwidth), 100MHz-200MHz (the PAPER bandwidth), and ??? (a small bandwidth?). This produces delay plots that shows...
+Next, we Fourier-transform along the frequency axis for 3 selected bandwidths: 50MHz-250MHz (the HERA bandwidth), 100MHz-200MHz (the PAPER bandwidth), and 140MHz-160MHz (bandwidth particularly relevant for making power spectra). This produces delay plots that shows...
 
-*insert 3 bandwidth delay plots*
+\begin{figure}[H]
+\centering
+\includegraphics[totalheight=0.5\textheight]{plots/delay3_window.png}
+\caption{Delay plots produced using a Blackman-Harris window function for 3 different frequency bandwidths.}
+\end{figure}
 
 The importance of window functioning when Fourier-transforming is illustrated in Figure...
 
@@ -57,7 +61,11 @@ The importance of window functioning when Fourier-transforming is illustrated in
 
 Finally, more robust measurements are taken with the feed at varying heights (6ft, 9ft, 12ft, and 15ft)...
 
-*insert height plot*
+\begin{figure}[H]
+\centering
+\includegraphics[totalheight=0.5\textheight]{plots/delay_heights.png}
+\caption{Delay plots produced using a Blackman-Harris window function for 4 different feed heights.}
+\end{figure}
 
 
 \section{Discussion}
