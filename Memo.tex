@@ -28,7 +28,7 @@ A prototype 14-m HERA dish has been built at the NRAO site in Green Bank, West V
 \caption{HERA dish and feed at the Green Bank NRAO site.}
 \end{figure}
 
-We took reflectometry measurements on July 20-23, 2015 using a FieldFox Network Analyzer. A pulse was generated and sent through a 75 ft long cable (125$\Omega$ impedance) that connected to the feed with a 4:1 active balun. This signal gets transmitted through the feed and then reflects off the dish...
+We took reflectometry measurements on July 20-23, 2015 using a FieldFox Network Analyzer. A pulse was generated and sent through a 75 ft long cable (50$\Omega$ impedance) that connected to the feed with a 4:1 active balun. This signal gets transmitted through the feed and then reflects off the dish...
 
 \section{Theory}
 
@@ -57,14 +57,18 @@ Next, we Fourier-transform along the frequency axis for 3 selected bandwidths: 5
 
 The importance of window functioning when Fourier-transforming is illustrated in Figure...
 
-*insert square window function vs. Blackman-Harris window function plot*
+\begin{figure}[H]
+\centering
+\includegraphics[totalheight=0.5\textheight]{plots/bh_vs_sq.png}
+\caption{Delay plot produced using a Blackman-Harris window function vs. a square window function for the PAPER bandwidth.}
+\end{figure}
 
 Finally, more robust measurements are taken with the feed at varying heights (6ft, 9ft, 12ft, and 15ft)...
 
 \begin{figure}[H]
 \centering
-\includegraphics[totalheight=0.5\textheight]{plots/delay_heights.png}
-\caption{Delay plots produced using a Blackman-Harris window function for 4 different feed heights.}
+\includegraphics[totalheight=0.5\textheight]{plots/delay_heights_paper.png}
+\caption{Delay plots produced using a Blackman-Harris window function for 4 different feed heights and the PAPER bandwidth.}
 \end{figure}
 
 
