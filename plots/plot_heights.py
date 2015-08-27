@@ -36,7 +36,8 @@ valids = [6,9,12,15]
 for i,v in enumerate(valids):
     fq,amps = fromcsv(file_base + str(v) + amp_end)
     fq,phs = fromcsv(file_base + str(v) + phs_end)
-    bandwidth = n.where(n.logical_and(fq>.05 ,fq<.25)) #HERA bandwidth
+    #bandwidth = n.where(n.logical_and(fq>.05 ,fq<.25)) #HERA bandwidth
+    bandwidth = n.where(n.logical_and(fq>.1,fq<.2)) #PAPER bandwidth
     dw, d, tau = take_delay(amps[bandwidth], phs[bandwidth], fq[bandwidth])
     p.plot(tau, 10*n.log10(n.abs(dw)**2), linewidth=2, label=('%s'%v)+'ft')
 p.xlim(-30,350)
