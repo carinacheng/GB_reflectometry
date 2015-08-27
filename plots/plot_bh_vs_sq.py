@@ -25,6 +25,9 @@ def take_delay(db, ph, fq, window='blackman-harris'):
 
     return n.fft.fftshift(_dw), n.fft.fftshift(_d), n.fft.fftshift(tau)
 
+colors = n.array([(31,119,180), (255,127,14), (44,160,44), (214,39,40), (127,127,127), (148,103,189)])/255.
+
+
 #file_base = sys.argv[1]
 file_base = '../alldata/NC41_12'
 amp = '_DB.csv'
@@ -34,8 +37,8 @@ fq, phs= fromcsv(file_base + phs)
 
 valid = n.where(n.logical_and(fq>.1, fq<.2))
 dw, d, tau = take_delay(amps[valid], phs[valid], fq[valid])
-p.plot(tau, 10*n.log10(n.abs(dw)**2), linewidth=2, label='blackman-harris')
-p.plot(tau, 10*n.log10(n.abs(d)**2), linewidth=2, label='square')
+p.plot(tau, 10*n.log10(n.abs(dw)**2), linewidth=2, label='blackman-harris', color=colors[0])
+p.plot(tau, 10*n.log10(n.abs(d)**2), linewidth=2, label='square', color = colors[1])
 
 p.xlim(-30,350) 
 p.ylim(-100, 1)

@@ -25,6 +25,9 @@ def take_delay(db, ph, fq, window='blackman-harris'):
 
     return n.fft.fftshift(_dw), n.fft.fftshift(_d), n.fft.fftshift(tau)
 
+
+colors = n.array([(31,119,180), (255,127,14), (44,160,44), (214,39,40), (127,127,127), (148,103,189)])/255.
+
 #file_base = sys.argv[1]
 file_base = '../alldata/NC41_12'
 amp = '_DB.csv'
@@ -56,7 +59,7 @@ valids = {
 for i,v in enumerate(valids.keys()):
     dw, d, tau = take_delay(amps[valids[v]], phs[valids[v]], fq[valids[v]])
     print v
-    p.plot(tau, 10*n.log10(n.abs(dw)**2), linewidth=2, label='%s'%v)
+    p.plot(tau, 10*n.log10(n.abs(dw)**2), linewidth=2, label='%s'%v, color=colors[i])
 p.xlim(-30,350) 
 p.ylim(-100, 1)
 p.vlines(60, -100,100, linestyle='--', linewidth=2)

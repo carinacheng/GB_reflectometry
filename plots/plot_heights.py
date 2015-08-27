@@ -26,6 +26,9 @@ def take_delay(db, ph, fq, window='blackman-harris'):
 
     return n.fft.fftshift(_dw), n.fft.fftshift(_d), n.fft.fftshift(tau)
 
+
+colors = n.array([(31,119,180), (255,127,14), (44,160,44), (214,39,40), (127,127,127), (148,103,189)])/255.
+
 #file_base = sys.argv[1]
 file_base = '../alldata/NC41_'
 amp_end = '_DB.csv'
@@ -39,7 +42,7 @@ for i,v in enumerate(valids):
     #bandwidth = n.where(n.logical_and(fq>.05 ,fq<.25)) #HERA bandwidth
     bandwidth = n.where(n.logical_and(fq>.1,fq<.2)) #PAPER bandwidth
     dw, d, tau = take_delay(amps[bandwidth], phs[bandwidth], fq[bandwidth])
-    p.plot(tau, 10*n.log10(n.abs(dw)**2), linewidth=2, label=('%s'%v)+'ft')
+    p.plot(tau, 10*n.log10(n.abs(dw)**2), linewidth=2, label=('%s'%v)+'ft', color=colors[i])
 p.xlim(-30,350)
 p.ylim(-100, 1)
 p.vlines(60, -100,100, linestyle='--', linewidth=2)

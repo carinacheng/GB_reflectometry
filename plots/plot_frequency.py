@@ -9,6 +9,7 @@ def fromcsv(filename):
     x = n.array(list(d)[18:-1], dtype=n.float)
     return x[:,0]/1e9, x[:,1]
 
+colors = n.array([(31,119,180), (255,127,14), (44,160,44), (214,39,40), (127,127,127), (148,103,189)])/255.
 
 #file_base = sys.argv[1]
 file_base = '../alldata/NC41_12'
@@ -32,7 +33,8 @@ p.legend()
 
 
 fig, (ax1,ax2) = p.subplots(2,1, figsize=(10,5), sharex=True)
-ax1.plot(freqs, amps, linewidth=3, label='amplitude', color=(0,107/255.,164/255.))
+#ax1.plot(freqs, amps, linewidth=3, label='amplitude', color=(0,107/255.,164/255.))
+ax1.plot(freqs, amps, linewidth=3, label='amplitude', color=colors[0])
 ax1.set_ylabel('Return Loss (dB)')
 ax1.grid(1)
 #ax1.set_xlim(.05,.250)
@@ -42,7 +44,8 @@ ax1.vlines(.1, -100, 100, linestyle='--', linewidth=2)
 ax1.vlines(.2, -100, 100, linestyle='--', linewidth=2)
 ax1.legend()
 
-ax2.plot(freqs, phase*n.pi/180., linewidth=3, label='phase', color=(1,128/255.,14/255.))
+#ax2.plot(freqs, phase*n.pi/180., linewidth=3, label='phase', color=(1,128/255.,14/255.))
+ax2.plot(freqs, phase*n.pi/180., linewidth=3, label='phase', color=colors[1])
 ax2.set_xlabel('Frequency (GHz)' )
 ax2.set_ylabel('Return Loss (dB)')
 ax2.grid(1)

@@ -35,6 +35,7 @@ for filename in sys.argv[1:]:
         _dw *= np.abs(_d[0])
         _d *= np.abs(_d[0])
 
+    print np.abs(_d[0])
     #plt.figure(1); plt.semilogy(fq, np.abs(d)**2, label=BASE)
 
     #plt.figure(2)
