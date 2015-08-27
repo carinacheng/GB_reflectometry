@@ -56,11 +56,11 @@ valids = {
 for i,v in enumerate(valids.keys()):
     dw, d, tau = take_delay(amps[valids[v]], phs[valids[v]], fq[valids[v]])
     print v
-    p.plot(tau, 10*n.log10(n.abs(dw)**2), linewidth=3, label='%s'%v)
+    p.plot(tau, 10*n.log10(n.abs(dw)**2), linewidth=2, label='%s'%v)
 p.xlim(-30,350) 
 p.ylim(-100, 1)
-p.vlines(60, -100,100, linestyle='--', linewidth=3)
-p.hlines(-60,-100 ,500, linestyle='--', linewidth=3)
+p.vlines(60, -100,100, linestyle='--', linewidth=2)
+p.hlines(-60,-100 ,500, linestyle='--', linewidth=2)
 p.xlabel('delay (ns)')
 p.ylabel('return loss (dB)')
 p.grid(1)
