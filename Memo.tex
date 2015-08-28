@@ -20,16 +20,25 @@ Understanding the nature of antenna reflections in the HERA dish is of the utmos
 
 \section{Theory}{\label{sec:theory}}
 
-*what is the measurement we are actually doing. 
+*what is the measurement we are actually doing... S11 math stuff* 
 
-*compare cable pulse measurements vs. actual sky measurements and how the amount of signal that is transmitted/reflected is different*
+In practice, a HERA dish receives signal from the sky. Lightwaves propagate in from infinity, reflect off the dish and enter the feed. For a well-designed feed, most of the signal will be transmitted through the feed, and only a small percentage of the signal reflects off the dish a second time (blue arrows in Figure \ref{fig:cartoon}). Therefore, the reflections we are concerned about are significantly less strong than the original signal, and it is this amount of reflection that we aim to quantify.
 
-*explain why the level of the measurements has to be brought down, and how this is okay for high delays*
+The antenna doesn't just act as a receiver. It can also act as an emitter, which is a property we employ in our experimental set-up. Instead of measuring sky signal reflections, we are operating in a controlled environment where we send a pulse that is to be transmitted from the feed. This results in a reversed situation from before - most of our original signal is transmitted from the feed to be reflected from the dish, while a small percentage reflects back down the cable (red arrows in Figure \ref{fig:cartoon}). Therefore, the S11 parameter we measure originates from a much stronger signal than from the receiving case. This is a discrepancy we have to correct for in our analysis.
+
+The difference between the receiving and transmitting antenna cases can be quantified by the impedance mismatch between the antenna and the sky...
+
+*explain why the level of the measurements has to be brought down, and how this is okay for high delays... *
+
+*WHY is the 'corrected' spectrum higher for low delays but lower for high delays?*
+
+*WHY is the correction term related to windowing vs. unwindowing?*
 
 \begin{figure}
 \centering
 \includegraphics[totalheight=0.5\textheight]{plots/reflection_cartoon.png}
 \caption{The blue solid lines represent an original sky signal entering the feed. A small percentage of it (dashed blue) is reflected off the dish, and it is these reflections that we are concerned about. In our measurements however, the reflections measured contain most of the original pulse signal (solid red), so it is crucial to adjust for this difference in our analysis.}
+\label{fig:cartoon}
 \end{figure}
 
 \section{Methodology}
