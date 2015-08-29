@@ -41,6 +41,68 @@ The difference between the receiving and transmitting antenna cases can be quant
 \label{fig:cartoon}
 \end{figure}
 
+
+
+\section{Reflection of the sky signal during observation:}
+
+\begin{figure}
+\centering
+\includegraphics[totalheight=0.5\textheight]{schematic.pdf}
+\caption{Schematic diagram showing reflection between the dish and the feed when sky signal is incident on it. }
+\label{reflection_schematic}
+\end{figure}
+Figure \ref{reflection_schematic} shows the schematic of the sky signal propagation path during an observation. The plane wavefront from the sky is incident on the parabolic dish and focussed at the feed. A part of this power is reflected off the feed, incidents back on the dish and comes back to the feed after further reflection from the dish. We consider one reflection off the feed and subsequent reflection off the dish as one reflection. If the incident power is $P_{sky}$, feed power reflection coefficient is $\Gamma_{a}$ and the dish reflection coefficient is $\Gamma_{d}$ then the net power entering the feed after $n$ reflection of the feed and the dish,  
+
+\begin{equation}
+P_{in} =  P_{sky}(1-\Gamma_{a})\Gamma_{d} [1+ \Gamma_{a}\Gamma_{d} e^{i\phi}+ (\Gamma_{a}\Gamma_{d})^2e^{i2\phi}+ ....+ (\Gamma_{d}\Gamma_{n})^{n}e^{in\phi}]
+\end{equation}
+
+where, $\phi = ({2\pi \over c})f 2l$ is the propagation delay of the a frequency $f$ due to reflection over the focal distance $l$. 
+Therefore, 
+\begin{eqnarray}
+{P_{in} \over P_{sky} } & = & (1-\Gamma_{a})\Gamma_{d} [1+ \Gamma_{a}\Gamma_{d} e^{i\phi}+ (\Gamma_{a}\Gamma_{d})^2e^{i2\phi}+ ....+ (\Gamma_{d}\Gamma_{n})^{n}e^{in\phi}] \nonumber\\
+      & = & (1-\Gamma_{a})\Gamma_{d} {1-(\Gamma_{d}\Gamma_{a})^{n} \over 1-\Gamma_{d} \Gamma_{a} } 
+\end{eqnarray}
+
+
+Therefore, the input signal would have ripples of various frequencies over its passband which would manifest itself as a non-zero signal at various delays in the delay domain. We aim to measure the relative signal strength at various delays, referred to as "delay spectrum" hereafter, to estimate various level of reflections in between the feed and the dish apex.\\
+ 
+ Delay spectrum measurement of the system is accomplished by measuring the return loss of the feed while keeping it at the focal point of the dish. A broadband signal $P_{tr}$ is sent to the feed antenna via a 75m long cable by the measuring instrument which is a vector network analyser (VNA). When the signal is incident on the feed, $\Gamma_{a}$ part of the incident power is reflected back to the measuring device and $(1-\Gamma_{a})$ part is radiated by the feed. The signal radiated by the feed illuminates the dish and is radiated out to the space. However, the signal incident at the dish apex is reflected by the dish and returns to the feed. This incident signal is now reflected back and forth in between the feed and the dish much like the sky signal reflection discussed previously. Hence, if $P_{r}$ is the power incident back on the feed for the first time then the reflected power $P_{ref}$ back into the measuring instrument would be, 
+
+\begin{equation}
+P_{ref} =  P_{r}(1-\Gamma_{a}) [1+ \Gamma_{a}\Gamma_{d} e^{i\phi}+ (\Gamma_{a}\Gamma_{d})^2e^{i2\phi}+ ....+ (\Gamma_{d}\Gamma_{n})^{n}e^{in\phi}]
+\end{equation}
+ 
+Once again we consider one reflection from the feed and subsequent reflection from the dish as one reflection. 
+
+Now, $P_{r}$ is the power incident back on the feed which is the feed radiated power reflected off the dish.  
+\begin{equation}
+P_{r}= \Gamma_{d}(1-\Gamma_a) P_{tr}
+\end{equation}
+Also, the first reflection of the power sent by the measuring device occurs at the antenna end. Hence the total reflected power $P_{ret}$, returned to the measuring device would be, 
+
+
+\begin{eqnarray}
+P_{ret} & = & \Gamma_{a}P_{tr} \nonumber\\ 
+ & & +  \Gamma_{d}(1-\Gamma_a) P_{tr}(1-\Gamma_{a}) [1+ \Gamma_{a}\Gamma_{d} e^{i\phi}+  ....+ (\Gamma_{d}\Gamma_{n})^{n}e^{in\phi}]\nonumber\\
+ \end{eqnarray}
+ Simplifying, 
+ \begin{eqnarray}
+ {P_{ret} \over P_{tr} } & = & \Gamma_{a}
+  +  \Gamma_{d}(1-\Gamma_a)^{2}  {1-(\Gamma_{d}\Gamma_{a})^{n} \over 1-\Gamma_{d} \Gamma_{a} } \nonumber\\
+\end{eqnarray}
+
+ 
+The VNA measures the magnitude and phase of the quantity ${P_{ret}\over P_{tr}}$ as a function of frequencies which is plotted in figure \ref{fig:freq}. Since in this measurement set up, the first reflection occurs at the antenna terminal which is represented by $\Gamma_{a}$ in the above equation, $({P_{ret} \over P_{tr} }  - \Gamma_{a}) $ gives the estimate of the delay spectrum of the sky signal. In the delay domain, the relative signal strength at zero delay represents the factor$\Gamma_{a}$ while the signal strength at any other delay represents the any delayed signal that entered the feed after being reflected from the feed surroundings. 
+ 
+
+
+
+
+
+
+
+
 \section{Methodology}
 
 To measure the delays associated with reflections within the dish and feed, we
