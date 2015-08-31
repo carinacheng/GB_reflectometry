@@ -24,15 +24,7 @@ Understanding the nature of antenna reflections in the HERA dish is of the utmos
 
 In practice, a HERA dish receives signal from the sky. Lightwaves propagate in from infinity, reflect off the dish and enter the feed. For a well-designed feed, most of the signal will be transmitted through the feed, and only a small percentage of the signal reflects off the dish a second time (blue arrows in Figure \ref{fig:cartoon}). Therefore, the reflections we are concerned about are significantly less strong than the original signal, and it is this amount of reflection that we aim to quantify.
 
-The antenna doesn't just act as a receiver. It can also act as an emitter, which is a property we employ in our experimental set-up. Instead of measuring sky signal reflections, we are operating in a controlled environment where we send a pulse that is to be transmitted from the feed. This results in a reversed situation from before - most of our original signal is transmitted from the feed to be reflected from the dish, while a small percentage reflects back down the cable (red arrows in Figure \ref{fig:cartoon}). Therefore, the S11 parameter we measure originates from a much stronger signal than from the receiving case. This is a discrepancy we have to correct for in our analysis.
-
-The difference between the receiving and transmitting antenna cases can be quantified by the impedance mismatch between the antenna and the sky...
-
-*explain why the level of the measurements has to be brought down, and how this is okay for high delays... *
-
-*WHY is the 'corrected' spectrum higher for low delays but lower for high delays?*
-
-*WHY is the correction term related to windowing vs. unwindowing?*
+The antenna doesn't just act as a receiver. It can also act as an emitter, which is a property we employ in our experimental set-up. Instead of measuring sky signal reflections, we are operating in a controlled environment where we send a pulse that is to be transmitted from the feed. This results in a reversed situation from before - most of our original signal is transmitted from the feed to be reflected from the dish, while a small percentage reflects back down the cable (red arrows in Figure \ref{fig:cartoon}). Therefore, the S11 parameter we measure originates from a much stronger signal than from the receiving case. This difference between the receiving and transmitting antenna cases can be quantified by the impedance mismatch between the antenna and the sky, and it is a discrepancy we have to correct for in our analysis.
 
 \begin{figure}
 \centering
@@ -40,7 +32,6 @@ The difference between the receiving and transmitting antenna cases can be quant
 \caption{The blue solid lines represent an original sky signal entering the feed. A small percentage of it (dashed blue) is reflected off the dish, and it is these reflections that we are concerned about. In our measurements however, the reflections measured contain most of the original pulse signal (solid red), so it is crucial to adjust for this difference in our analysis.}
 \label{fig:cartoon}
 \end{figure}
-
 
 
 \section{Reflection of the sky signal during observation:}
@@ -95,15 +86,8 @@ P_{ret} & = & \Gamma_{a}P_{tr} \nonumber\\
  
 The VNA measures the magnitude and phase of the quantity ${P_{ret}\over P_{tr}}$ as a function of frequencies which is plotted in figure \ref{fig:freq}. Since in this measurement set up, the first reflection occurs at the antenna terminal which is represented by $\Gamma_{a}$ in the above equation, $({P_{ret} \over P_{tr} }  - \Gamma_{a}) $ gives the estimate of the delay spectrum of the sky signal. In the delay domain, the relative signal strength at zero delay represents the factor$\Gamma_{a}$ while the signal strength at any other delay represents the any delayed signal that entered the feed after being reflected from the feed surroundings. 
  
+\section{Methodology}{\label{sec:methods}}
 
-
-
-
-
-
-
-
-\section{Methodology}
 
 To measure the delays associated with reflections within the dish and feed, we
 used the prototype HERA dish (Figure \ref{fig:heradish} built at the NRAO site in
@@ -133,7 +117,7 @@ can be used in the Fourier transform. Without a window function, taking the Four
 \label{fig:window}
 \end{figure}
 
-As mentioned in Section \ref{sec:theory}, there is a mis-match in amplitude between the reflections that we measure (originating from the FieldFox pulse) and reflections produced by sky signal. To compensate, we multiply our entire windowed delay spectrum by the DC component of the un-windowed delay spectrum.
+As mentioned in Section \ref{sec:theory}, there is a mis-match in amplitude between the reflections that we measure (originating from the FieldFox pulse) and reflections produced by sky signal. The reflections that we measure (at high delays) must be lowered by a factor to represent weaker reflections that would occur after most of the sky signal is received by the feed. For our compensation, we multiply our entire delay spectrum by its DC component. We note that this correction is only accurate at high delays where our reflections of interest occur. At low delays, our spectrum amplitude should be increased to represent the original sky signal, but we do not apply this correction because it is not relevant to our analysis.
 
 \begin{figure}
 \centering
@@ -148,7 +132,7 @@ Figure \ref{fig:freq} shows the return loss for a frequency bandwidth of 50 to 5
 
 \begin{figure}
 \centering
-\includegraphics[totalheight=0.4\textheight]{plots/frequency_amp_phase.png}
+\includegraphics[totalheight=0.4\textheight]{plots/frequency_amp_phase_fullbw.png}
 \caption{Amplitude and phase of the measured return loss.}
 \label{fig:freq}
 \end{figure}
