@@ -20,7 +20,8 @@ def take_delay(db, ph, fq, window='blackman-harris'):
     _dw = n.fft.ifft(d*window) / window.mean() #compensate for window amplitude
     
     if True:
-        _dw *= n.abs(_d[0]) 
+    #if False:
+        _dw *= n.abs(_dw[0])  # these should be changed to the dc bin of the windowed data.
         _d *= n.abs(_d[0]) 
 
     return n.fft.fftshift(_dw), n.fft.fftshift(_d), n.fft.fftshift(tau)
@@ -36,9 +37,10 @@ fq, amps = fromcsv(file_base + amp)
 fq, phs= fromcsv(file_base + phs)
 
 valids = {
-          'hera'  : n.where(n.logical_and(fq>.05 ,fq<.25)), 
-          'paper' : n.where(n.logical_and(fq>.1 ,fq<.2)), 
-          'pspec' : n.where(n.logical_and(fq>.14 ,fq<.16))
+          '50 - 250 MHz'  : n.where(n.logical_and(fq>.05 ,fq<.25)), 
+          '100 - 200 MHz' : n.where(n.logical_and(fq>.1 ,fq<.2)), 
+          '140 - 160 MHz' : n.where(n.logical_and(fq>.140 ,fq<.160))
+#          'second' : n.where(n.logical_and(fq>.250 ,fq<.500))
          }
 
 #fig, axes = p.subplots(3,1,figsize=(5.4,9))
@@ -57,7 +59,7 @@ valids = {
 #    axes[i].legend() 
 
 for i,v in enumerate(valids.keys()):
-    dw, d, tau = take_delay(amps[valids[v]], phs[valids[v]], fq[valids[v]])
+    dw, d, tau = take_delay(amps[valids[v]], phs[valids[v]], fq[valids[v]], window='hamming')
     print v
     p.plot(tau, 10*n.log10(n.abs(dw)**2), linewidth=2, label='%s'%v, color=colors[i])
 p.xlim(-30,350) 
