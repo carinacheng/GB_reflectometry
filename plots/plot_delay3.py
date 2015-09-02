@@ -3,12 +3,21 @@ import numpy as n
 import pylab as p
 import sys, csv
 import aipy as a
+import pd
 
 def fromcsv(filename):
     print 'Reading', filename
     d = csv.reader(open(filename,'r'), delimiter=',')
     x = n.array(list(d)[18:-1], dtype=n.float)
     return x[:,0]/1e9, x[:,1]
+
+def fromcsvdaisy(filename):
+    ''' Returns delay(ps), power(dB) '''
+    print 'Reading Daisy file ', filename
+    d = csv.reader(open(filename, 'r'), delimiter=',')
+    x = n.array(list(d)[12:-1], dtype=n.float)
+    print x
+    return x[:,0]*1e-3, 20.0*n.log10(x[:,1])
 
 def take_delay(db, ph, fq, window='blackman-harris'):
     '''Take reflectometry data in dB and phase to return delay transform.
@@ -33,13 +42,16 @@ colors = n.array([(31,119,180), (255,127,14), (44,160,44), (214,39,40), (127,127
 file_base = '../alldata/NC41_12'
 amp = '_DB.csv'
 phs = '_P.csv'
+dfile = 'Time/set1/TXT102.csv'
 fq, amps = fromcsv(file_base + amp)
 fq, phs= fromcsv(file_base + phs)
+dns, ddb = fromcsvdaisy(dfile)
 
 valids = {
           '50 - 250 MHz'  : n.where(n.logical_and(fq>.05 ,fq<.25)), 
           '100 - 200 MHz' : n.where(n.logical_and(fq>.1 ,fq<.2)), 
-          '140 - 160 MHz' : n.where(n.logical_and(fq>.140 ,fq<.160))
+          '140 - 160 MHz' : n.where(n.logical_and(fq>.140 ,fq<.160)),
+          '100 - 200 MHz Old' : None
 #          'second' : n.where(n.logical_and(fq>.250 ,fq<.500))
          }
 
@@ -59,9 +71,13 @@ valids = {
 #    axes[i].legend() 
 
 for i,v in enumerate(valids.keys()):
-    dw, d, tau = take_delay(amps[valids[v]], phs[valids[v]], fq[valids[v]], window='hamming')
     print v
-    p.plot(tau, 10*n.log10(n.abs(dw)**2), linewidth=2, label='%s'%v, color=colors[i])
+    if v == '100 - 200 MHz Old':
+        p.plot(dns, ddb, linewidth=2, label='%s'%v, color=colors[i])    
+        print dns,ddb
+    else:
+        dw, d, tau = take_delay(amps[valids[v]], phs[valids[v]], fq[valids[v]], window='hamming')
+        p.plot(tau, 10*n.log10(n.abs(dw)**2), linewidth=2, label='%s'%v, color=colors[i])
 p.xlim(-30,350) 
 p.ylim(-100, 1)
 p.vlines(60, -100,100, linestyle='--', linewidth=2)
