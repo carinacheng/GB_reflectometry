@@ -63,4 +63,6 @@ ax2.vlines(.14, -100, 100, linestyle='--', linewidth=2, color='m')
 ax2.vlines(.16, -100, 100, linestyle='--', linewidth=2, color='m')
 ax2.legend()
 
+fig.subplots_adjust(left=.08, top=.95, bottom=.10,right=0.88)
+
 p.show()

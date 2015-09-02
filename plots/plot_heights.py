@@ -41,6 +41,7 @@ phs_end = '_P.csv'
 valids = ['C_NC41','C_NC41_AB']
 labels = ['feed in cage on ground','feed in cage on absorber']
 
+fig, ax = p.subplots(nrows=1,ncols=1)
 for i,v in enumerate(valids):
     fq,amps = fromcsv(file_base + str(v) + amp_end)
     fq,phs = fromcsv(file_base + str(v) + phs_end)
@@ -49,7 +50,7 @@ for i,v in enumerate(valids):
     bandwidth = n.where(n.logical_and(fq>.05,fq<.5)) #full bandwidth
     dw, d, tau = take_delay(amps[bandwidth], phs[bandwidth], fq[bandwidth])
 #    p.plot(tau, 10*n.log10(n.abs(dw)**2), linewidth=2, label=('%s'%v)+'ft', color=colors[i])
-    p.plot(tau, 10*n.log10(n.abs(dw)**2), linewidth=2, label=labels[i], color=colors[i])
+    ax.plot(tau, 10*n.log10(n.abs(dw)**2), linewidth=2, label=labels[i], color=colors[i])
 p.xlim(-30,350)
 p.ylim(-100, 1)
 p.vlines(60, -100,100, linestyle='--', linewidth=2)
@@ -58,5 +59,7 @@ p.xlabel('delay (ns)')
 p.ylabel('return loss (dB)')
 p.grid(1)
 p.legend()
+
+fig.subplots_adjust(left=.08, top=.95, bottom=.10,right=0.92)
 
 p.show()
