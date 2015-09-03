@@ -36,7 +36,7 @@ The design specification of HERA elements is such that the amplitude of the sign
 
 In practice, a HERA dish receives signal from the sky\footnote{All astronomical
 telescopes operate in this way.}. Plane waves incident on the parabolic dish
-are focussed at the feed with focal height $f$. For a well-designed feed, one
+are focussed at the feed with focal height $l$. For a well-designed feed, one
 that matches the impedance of free space\footnote{The impedance of free space
 is $Z_{0} = \mu_{0}c_{0} = \frac{1}{\epsilon_{0}c_{0}} \approx 377\Omega $.},
 most of the signal will enter the system while only
@@ -61,24 +61,38 @@ Therefore:
       & = & (1-\Gamma_{a})\Gamma_{d} {1-(\Gamma_{d}\Gamma_{a}e^{i\phi})^{n} \over 1-\Gamma_{d} \Gamma_{a} e^{i\phi} } 
 \end{eqnarray}
 
-Reflections cause the sky signal to appear at various delays. We aim to measure the relative signal strength at those various delays, referred to as the ``delay spectrum" hereafter, to estimate levels of reflections in between the feed and the dish apex.
- 
-We employ the reciprocity theorem for antennas in our experimental set-up.
-More specifically, our experimental set-up differs from measuring sky signal
-reflections since we send a pulse that is to be transmitted from the feed
-before receiving it again. This results in a reversed situation - most of our
-original signal is transmitted from the feed to be reflected from the dish,
-while a small percentage reflects back down the cable (red arrows in Figure
-\ref{fig:cartoon}). Therefore, since our measurement is carried out in
-transmitting mode while an observation would be carried out in receiving mode,
-we correct our results in order to map them to represent real observations.
+The ratio in Equation \ref{} quantifies the amount of power received with
+respect to the incident sky power. Realistically, the incident sky power is not
+easily quantifiable, but is a quantity we need to know to accurately
+characterize reflections.  
 
-A broadband signal $P_{tr}$ is sent to the feed antenna via a $75m$ long cable by
-a vector network analyser (VNA). A delay spectrum measurement of the system is
-accomplished by measuring the complex return loss of the feed while keeping it at the
-focal point of the dish.  When the signal is incident on the feed, part of the
-incident power ($\Gamma_{a}$ ) is reflected back to the measuring device and
-$(1-\Gamma_{a})$ is radiated by the feed. The signal radiated by the feed
+Therefore, in our experimental set-up, instead of using sky signal, we make use
+of the reciprocity theorem for antennas and employ our feed first as a
+transmitter. We send a known amplitude pulse that is transmitted through the feed, creating a reversed situation where most of our
+original signal contributes to reflections while a small percentage reflects
+back down the cable (red arrows in Figure \ref{fig:cartoon}). Therefore, since
+our measurement is carried out in transmitting mode while a sky observation
+would be carried out in receiving mode, we correct our results in order to map
+them to represent real observations.
+
+%Reflections cause the sky signal to appear at various delays. We aim to measure
+%the relative signal strength at those various delays, referred to as the
+%``delay spectrum" hereafter, to estimate levels of reflections in between the
+%feed and the dish apex.
+ 
+%We employ the reciprocity theorem for antennas in our experimental set-up.
+%More specifically, our experimental set-up differs from measuring sky signal
+%reflections since we send a pulse that is to be transmitted from the feed
+%before receiving it again. This results in a reversed situation - most of our
+%original signal is transmitted from the feed to be reflected from the dish,
+%while a small percentage reflects back down the cable (red arrows in Figure
+%\ref{fig:cartoon}). Therefore, since our measurement is carried out in
+%transmitting mode while an observation would be carried out in receiving mode,
+%we correct our results in order to map them to represent real observations.
+
+If the initial pulse is a broadband signal, $P_{tr}$, sent to the feed antenna via a $75m$ long cable by a vector network analyser (VNA), a delay spectrum measurement of the system is accomplished by measuring the complex return loss of the feed. When the signal is incident on the feed, part of the
+incident power ($\Gamma_{a}$ ) is reflected back to the measuring device (dashed red arrows in Figure \ref{fig:cartoon}) and
+$(1-\Gamma_{a})$ is radiated by the feed (solid red arrows in Figure \ref{fig:cartoon}). The signal radiated by the feed
 illuminates the dish, and the signal incident at the dish apex is reflected by
 the dish and returns to the feed. This incident signal is now reflected back
 and forth in between the feed and the dish much like the sky signal reflection
