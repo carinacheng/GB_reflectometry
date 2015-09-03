@@ -14,8 +14,10 @@
 
 \section{Introduction}
 
-Non-ideal performance of radio telescope systems are often chromatic and manifests themselves in the measured data as systematic effects. One such non-ideality is mismatch between the impedance of free space and antenna as well as the transmission line which results in partial coupling of the sky signal into the antenna while the rest of it is reflected back into the space. In any reflector antenna, such as HERA dish antenna, this reflected signal illuminates the reflector. While most of the signal is reflected back in to the space by the reflector,  a part of it is reflected back and forth several times in between the feed and the vertex of the dish which is shadowed by the feed (red arrows in Figure \ref{fig:cartoon}). Such reflections generates multiple copies of reduced strength of the incident sky signal at various delays. This produces spurious correlation in the visibility space of the interferometric data. 
 
+%Non-ideal performance of radio telescope systems are often chromatic and manifests themselves in the measured data as systematic effects. One such non-ideality is mismatch between the impedance of free space and antenna as well as the transmission line which results in partial coupling of the sky signal into the antenna while the rest of it is reflected back into the space. In any reflector antenna, such as HERA dish antenna, this reflected signal illuminates the reflector. While most of the signal is reflected back in to the space by the reflector,  a part of it is reflected back and forth several times in between the feed and the vertex of the dish which is shadowed by the feed (red arrows in Figure \ref{fig:cartoon}). Such reflections generates multiple copies of reduced strength of the incident sky signal at various delays. This produces spurious correlation in the visibility space of the interferometric data. 
+
+There are several different sources of instrumental chromaticity for radio telescope systems that can result in non-ideal performances and unwanted systematic effects in measured data. One such non-ideality is the mismatch between the impedance of free space and the antenna and transmission line, which results in a partial coupling of the sky signal into the antenna while the rest is reflected into space. For any reflector antenna, such as the HERA dish antenna, sky signal illuminates the reflector and part of it reflects back and forth several times in between the dish feed and the vertex of the dish. Such reflections generate multiple reduced strength copies of the incident sky signal at various delays, and this produces spurious correlations in the visibilities of interferometric data. 
 
  The design specification of the HERA elements are such that the amplitude of the signal that arrives at the feed at a delay of $60 \rm nS$ after multiple reflections off the dish, should be reduced by 60 dB relative to the first incident signal at the feed. We aim to verify this by carrying out Time Domain Reflectometry (TDR) at the HERA antenna prototype at the Green Bank. Understanding the nature of antenna reflections in the HERA dish is of the
 utmost importance in characterising the performance of the dish. As HERA
@@ -55,6 +57,17 @@ Figure \ref{fig:cartoon}).
  In the following discussion, we consider the reflection
 off the feed and the subsequent reflection off the dish as one reflection.
 
+%telescopes operate in this way.}. Plane waves incident on the parabolic dish
+%are focussed at the feed with focal height $l$. For a well-designed feed, one
+%that matches the impedance of free space\footnote{The impedance of free space
+%is $Z_{0} = \mu_{0}c_{0} = \frac{1}{\epsilon_{0}c_{0}} \approx 377\Omega $.},
+%most of the signal will enter the system while only
+%a small percentage will be reflected back towards the dish for a secondary
+%reflection into the feed (blue arrows in Figure \ref{fig:cartoon}). In the
+%following discussion, we consider the reflection off the feed and the
+%subsequent reflection off the dish as one reflection.
+
+
 Quantitatively, if the incident power from the sky signal is $P_{sky}$, the feed
 reflection coefficient is $\Gamma_{a}$, and the dish reflection
 coefficient is $\Gamma_{d}$, then the net power entering the feed after an
@@ -80,10 +93,34 @@ we correct our results in order to map them to represent real observations.
 
 %
 %More specifically, our experimental set-up differs from measuring sky nal
+
+%The ratio in Equation \ref{} quantifies the amount of power received with
+%respect to the incident sky power. Realistically, the incident sky power is not
+%easily quantifiable, but is a quantity we need to know to accurately
+%characterize reflections.  
+
+%Therefore, in our experimental set-up, instead of using sky signal, we make use
+%of the reciprocity theorem for antennas and employ our feed first as a
+%transmitter. We send a known amplitude pulse that is transmitted through the feed, creating a reversed situation where most of our
+%original signal contributes to reflections while a small percentage reflects
+%back down the cable (red arrows in Figure \ref{fig:cartoon}). Therefore, since
+%our measurement is carried out in transmitting mode while a sky observation
+%would be carried out in receiving mode, we correct our results in order to map
+%them to represent real observations.
+
+%Reflections cause the sky signal to appear at various delays. We aim to measure
+%the relative signal strength at those various delays, referred to as the
+%``delay spectrum" hereafter, to estimate levels of reflections in between the
+%feed and the dish apex.
+ 
+%We employ the reciprocity theorem for antennas in our experimental set-up.
+%More specifically, our experimental set-up differs from measuring sky signal
+
 %reflections since we send a pulse that is to be transmitted from the feed
 %before receiving it again. This results in a reversed situation - most of our
 %original signal is transmitted from the feed to be reflected from the dish,
 %while a small percentage reflects back down the cable (red arrows in Figure
+
 %\ref{fig:cartoon}). Therefore, 
 
 A broadband signal $P_{tr}$ is sent to the feed antenna via a 75m long cable by
@@ -92,6 +129,15 @@ accomplished by measuring the return loss of the feed while keeping it at the
 focal point of the dish.  When the signal is incident on the feed, part of the
 incident power ($\Gamma_{a}$ ) is reflected back to the measuring device and
 $(1-\Gamma_{a})$ is radiated by the feed. The signal radiated by the feed
+
+%\ref{fig:cartoon}). Therefore, since our measurement is carried out in
+%transmitting mode while an observation would be carried out in receiving mode,
+%we correct our results in order to map them to represent real observations.
+
+%If the initial pulse is a broadband signal, $P_{tr}$, sent to the feed antenna via a $75m$ long cable by a vector network analyser (VNA), a delay spectrum measurement of the system is accomplished by measuring the complex return loss of the feed. When the signal is incident on the feed, part of the
+%incident power ($\Gamma_{a}$ ) is reflected back to the measuring device (dashed red arrows in Figure \ref{fig:cartoon}) and
+%$(1-\Gamma_{a})$ is radiated by the feed (solid red arrows in Figure \ref{fig:cartoon}). The signal radiated by the feed
+
 illuminates the dish, and the signal incident at the dish apex is reflected by
 the dish and returns to the feed. This incident signal is now reflected back
 and forth in between the feed and the dish much like the sky signal reflection
