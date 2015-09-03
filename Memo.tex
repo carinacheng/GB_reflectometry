@@ -9,26 +9,18 @@
 \begin{document}
 
 \title{HERA Dish Reflectometry} 
-\author{Zaki Ali, Carina Cheng, Aaron Parsons, Nipanjana Patra}
+\author{Nipanjana Patra, Zaki Ali, Carina Cheng, Aaron Parsons}
 \maketitle
 
 \section{Introduction}
 
-There are several different sources of instrumental chromaticity for an
-interferometer such as HERA that can introduce unwanted systematics in data
-(Cite Dish Memo). One such source is the antenna, which can introduce
-spectral structure in the measured visibilities due to delays associated with
-signal reflections.  The HERA element was designed to minimize this effect -
-the contamination outside the foreground `wedge' - so that the expected level
-of the 21cm reionization signal that we are interested in still dominates this
-region. In order to achieve this, any reflections should be 60dB below the
-incident sky signal  at a delay of 60ns. This has been implemented in the HERA
-element design, setting a constraint on the level of reflections. 
+Non-ideal performance of radio telescope systems are often chromatic and manifests themselves in the measured data as systematic effects. One such non-ideality is mismatch between the impedance of free space and antenna as well as the transmission line which results in partial coupling of the sky signal into the antenna while the rest of it is reflected back into the space. In any reflector antenna, such as HERA dish antenna, this reflected signal illuminates the reflector. While most of the signal is reflected back in to the space by the reflector,  a part of it is reflected back and forth several times in between the feed and the vertex of the dish which is shadowed by the feed (red arrows in Figure \ref{fig:cartoon}). Such reflections generates multiple copies of reduced strength of the incident sky signal at various delays. This produces spurious correlation in the visibility space of the interferometric data. 
 
-Understanding the nature of antenna reflections in the HERA dish is of the
-utmost importance in characterizing the performance of the dish. As HERA
+
+ The design specification of the HERA elements are such that the amplitude of the signal that arrives at the feed at a delay of $60 \rm nS$ after multiple reflections off the dish, should be reduced by 60 dB relative to the first incident signal at the feed. We aim to verify this by carrying out Time Domain Reflectometry (TDR) at the HERA antenna prototype at the Green Bank. Understanding the nature of antenna reflections in the HERA dish is of the
+utmost importance in characterising the performance of the dish. As HERA
 progresses as an experiment, it is necessary to build optimal dishes that
-promise to minimize the challenges of chromaticity in our quest for the Epoch
+promise to minimise the challenges of chromaticity in our quest for the Epoch
 of Reionization.
 
 \begin{figure}
@@ -52,16 +44,15 @@ of Reionization.
 
 
 In practice, a HERA dish receives signal from the sky\footnote{All astronomical
-telescopes operate in this way.}. Light waves that propagate in from infinity are
-incident on the parabolic dish and then focussed at the feed at the focal
+telescopes operate in this way.}. The plane waves, incident on the parabolic dish are focussed at the feed at the focal
 height. For a well-designed feed, one that matches the impedance of
 free space\footnote{The impedance of free space is $Z_{0} = \mu_{0}c_{0} =
 \frac{1}{\epsilon_{0}c_{0}} \approx 377\Omega $.}, most of the signal will be
-transmitted through the feed while only a small percentage will be reflected
+coupled into the system through the feed while only a small percentage will be reflected
 back towards the dish for a secondary reflection into the feed (blue arrows in
-Figure \ref{fig:cartoon}).  Therefore, the reflections we are concerned about
-are significantly less strong than the original signal, and it is this amount of
-reflection that we aim to quantify.  In other words, we consider the reflection
+Figure \ref{fig:cartoon}).  
+%Therefore, the reflections we are concerned about are significantly less strong than the original signal, and it is this amount of eflection that we aim to quantify.
+ In the following discussion, we consider the reflection
 off the feed and the subsequent reflection off the dish as one reflection.
 
 Quantitatively, if the incident power from the sky signal is $P_{sky}$, the feed
@@ -73,28 +64,27 @@ $n^{th}$ reflection off the feed and the dish is:
 P_{in} =  P_{sky}(1-\Gamma_{a})\Gamma_{d} [1+ \Gamma_{a}\Gamma_{d} e^{i\phi}+ (\Gamma_{a}\Gamma_{d})^2e^{i2\phi}+ ....+ (\Gamma_{d}\Gamma_{n})^{n}e^{in\phi}]
 \end{equation}
 
-where, $\phi = 2l({2\pi \over c})f$ is the propagation delay of a lightwave of frequency $f$ due to a reflection over a focal distance $l$. 
+where, $\phi = ({2\pi f \over c})(2l)$ is the propagation delay of a lightwave of frequency $f$ due to a reflection over a focal distance $l$. 
 Therefore:
 \begin{eqnarray}
 {P_{in} \over P_{sky} } & = & (1-\Gamma_{a})\Gamma_{d} [1+ \Gamma_{a}\Gamma_{d} e^{i\phi}+ (\Gamma_{a}\Gamma_{d})^2e^{i2\phi}+ ....+ (\Gamma_{d}\Gamma_{n})^{n}e^{in\phi}] \nonumber\\
       & = & (1-\Gamma_{a})\Gamma_{d} {1-(\Gamma_{d}\Gamma_{a}e^{i\phi})^{n} \over 1-\Gamma_{d} \Gamma_{a} e^{i\phi} } 
 \end{eqnarray}
 
-Reflections cause an input signal to have ripples of various frequencies over
-its passband, which manifest themselves as non-zero signals at various delays
-in the delay domain. We aim to measure the relative signal strength at various
+Reflections causes the sky signal appear at various delays. We aim to measure the relative signal strength at various
 delays, referred to as the ``delay spectrum" hereafter, to estimate various
-levels of reflections in between the feed and the dish apex.
- 
-We employ the reciprocity theorem for antennas in our experimental set-up.
-More specifically, our experimental set-up differs from measuring sky signal
-reflections since we send a pulse that is to be transmitted from the feed
-before receiving it again. This results in a reversed situation - most of our
-original signal is transmitted from the feed to be reflected from the dish,
-while a small percentage reflects back down the cable (red arrows in Figure
-\ref{fig:cartoon}). Therefore, since our measurement is carried out in
+levels of reflections in between the feed and the dish apex. Antenna performance is reciprocal in transmitting and receiving mode and, therefore, in order to measure the delay spectrum, we measure the complex return loss of the antenna by a Vector Network Analyser (VNA) and take the Fourier transform of the measured data. 
+Since this measurement is carried out in
 transmitting mode while an observation would be carried out in receiving mode,
 we correct our results in order to map them to represent real observations.
+
+%
+%More specifically, our experimental set-up differs from measuring sky nal
+%reflections since we send a pulse that is to be transmitted from the feed
+%before receiving it again. This results in a reversed situation - most of our
+%original signal is transmitted from the feed to be reflected from the dish,
+%while a small percentage reflects back down the cable (red arrows in Figure
+%\ref{fig:cartoon}). Therefore, 
 
 A broadband signal $P_{tr}$ is sent to the feed antenna via a 75m long cable by
 a vector network analyser (VNA). A delay spectrum measurement of the system is
@@ -139,9 +129,9 @@ The VNA measures the magnitude and phase of the quantity ${P_{ret}\over P_{tr}}$
 
 \section{Methodology}{\label{sec:methods}}
 
-To measure the delays associated with reflections within the dish and feed, we
-used the prototype HERA dish (Figure \ref{fig:heradish} built at the NRAO site in
-Green Bank, WV. The dish is a 14-m parabolic reflector structurally supported
+The prototype HERA dish (Figure \ref{fig:heradish} built at the NRAO site in
+Green Bank, WV. is used to measure the delays associated with reflections within the dish and feed.
+The dish is a 14-m parabolic reflector structurally supported
 with 3 telephone poles. The reflective material is made up of wire mesh that
 is attached to PVC pipes that form the parabolic shape. With the current
 prototype, the feed is a PAPER dipole encased in a cylindrical cage encompassing
@@ -151,23 +141,34 @@ system. The focal height of the dish is 4.5m ($\sim{14.76}$ft). Feed heights quo
 %XXX get discrepancy distance from DaveD. (1.7 ft from the bottom plate of sandwich to the top of the the cage and .26 ft from the top of the concrete hub to the middle where the parabola starts)
 
 The following reflectometry measurements were taken on July 20-23, 2015 using a
-FieldFox unit in Network Analyzer mode. A pulse is generated in the FieldFox
+FieldFox unit in Network Analyzer mode. A pulse is generated in the VNA
 and sent through a 75ft $50\Omega$ cable that connects to the feed with a 4:1
-passive balun. The return loss as a function of frequency is saved. Both
-the amplitude of the power and phase information are saved. Our
-measurements are taken for a frequency bandwidth of 50 to 500MHz. 
+passive balun. Magnitude and phase of the complex return loss of power is measured.
+Measurements are taken for a frequency bandwidth of 50 to 500MHz. The delay spectrum is computed by taking Fourier transform of the measured data with appropriate windowing. The measurement specifications are, 
 
-Measurements are transformed into the delay domain during post-processing so that window functions
-can be used in the Fourier transform. Without a window function, taking the Fourier transform of a finite data series (such as the return loss over a finite bandwidth), which can be interpreted as a square window function, is equivalent to convolving the Fourier transformed data with a $sinc$ function. This results in excess power at high delays due to the sidelobes in the $sinc$ function. Consequently, we have chosen to use a Blackman-Harris window function when moving into the delay domain. The effectiveness of this window function compared to a square window function is illustrated in Figure \ref{fig:window}.
+\begin{itemize}
+\item
+Frequency bandwidth $450~MHz$ with 1024 channels i.e, frequency resolution $\Delta \nu = 0.44MHz$.
+\item
+For the measurement across $450~MHz$ bandwidth, resolution in the delay domain is $\Delta t = 2.22~ns$.
+\item
+Antenna feed focal length $4.5~m$ which corresponds to a signal propagation delay of $0.3~ns$. Hence, subsequent reflections from the dish vertex are expected to be at a delay which is integral multiple of $0.3~nS$. 
+\item
+Across the PAPER frequency band of $50 - 250~MHz$, the delay resolution would be $10~ns$ whereas the same over any $20MHz$ bandwidth would be $50ns$.
+\end{itemize} 
 
-\begin{figure}
+The signal at any other delays would be the result of signal reflection in the feed and the back place structure and the feed surroundings. 
+ 
+Fourier transform of a finite data series (such as the return loss over a finite bandwidth) can be interpreted as multiplication of data with a square window function, which is equivalent to convolving the Fourier transformed data with a $sinc$ function. This results in excess power at high delays due to the sidelobes in the $sinc$ function. Hence, appropriate windowing of the measurements is necessary before taking the Fourier transform. We have chosen to use a Blackman-Harris window. The effectiveness of this window function compared to a square window function is illustrated in Figure \ref{fig:window}.
+
+\begin{figure}[H]
 \centering
 \includegraphics[totalheight=0.4\textheight]{plots/bh_vs_sq.png}
-\caption{Delay plot produced using a Blackman-Harris window function vs. a square window function for the PAPER bandwidth.}
+\caption{Fourier transform of the data shown in Figure \ref{fig:freq} using a Blackman-Harris window function as well as a square window function for the PAPER observation band between 100 to 200~MHz. The dashed lines mark the specification 60~dB - 60~ns.   }
 \label{fig:window}
 \end{figure}
 
-As mentioned in Section \ref{sec:theory}, there is a mis-match in amplitude between the reflections that we measure (originating from the FieldFox pulse) and reflections produced by sky signal. The reflections that we measure (at high delays) must be lowered by a factor to represent weaker reflections that would occur after most of the sky signal is received by the feed. For our compensation, we multiply our entire delay spectrum by its DC component. We note that this correction is only accurate at high delays where our reflections of interest occur. At low delays, our spectrum amplitude should be increased to represent the original sky signal, but we do not apply this correction because it is not relevant to our analysis.
+As mentioned in Section \ref{sec:theory}, there is a mismatch in amplitude between the reflections that we measure (originating from the FieldFox pulse) and reflections produced by sky signal. The reflections that we measure (at high delays) must be lowered by a factor to represent weaker reflections that would occur after most of the sky signal is received by the feed. For our compensation, we multiply our entire delay spectrum by its DC component. We note that this correction is only accurate at high delays where our reflections of interest occur. At low delays, our spectrum amplitude should be increased to represent the original sky signal, but we do not apply this correction because it is not relevant to our analysis.
 
 \begin{figure}
 \centering
