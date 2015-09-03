@@ -29,8 +29,7 @@ in the visibilities of interferometric data.
 The design specification of HERA elements is such that the amplitude of the
 signal that arrives at the feed at a delay of $60ns$ (after multiple
 reflections off the dish) should be reduced by $60dB$ relative to the first
-incident signal at the feed. We aim to verify this by carrying out Time Domain
-Reflectometry (TDR) at the HERA antenna prototype in Green Bank, WV.
+incident signal at the feed. We aim to verify this by carrying out reflectometry measurements at the HERA antenna prototype in Green Bank, WV.
 Understanding the nature of antenna reflections in the HERA dish is of the
 utmost importance in characterizing the performance of the dish. As HERA
 progresses as an experiment, it is necessary to build optimal dishes that aim
@@ -75,7 +74,7 @@ reflection coefficient is $\Gamma_{a}$, and the dish reflection
 coefficient is $\Gamma_{d}$, then the net power entering the feed after an
 $n^{th}$ reflection off the feed and the dish is:
 
-\begin{equation}
+\begin{equation}\label{eqn:series1}
 P_{in} =  P_{sky}(1-\Gamma_{a})\Gamma_{d} [1+ \Gamma_{a}\Gamma_{d} e^{i\phi}+ (\Gamma_{a}\Gamma_{d})^2e^{i2\phi}+ ....+ (\Gamma_{d}\Gamma_{n})^{n}e^{in\phi}]
 \end{equation}
 
@@ -91,13 +90,6 @@ with respect to the incident sky power. Realistically, the incident sky power
 is not easily quantifiable, but it is a quantity we need to know to accurately
 characterize reflections.  
 
-Therefore, in our experimental set-up, instead of using sky signal, we employ 
-our feed first as a transmitter. We send a pulse that is transmitted through
-the feed, creating a reversed situation where most of our original signal
-contributes to reflections while a small percentage reflects back down the
-cable. Therefore, since our measurement is carried out in transmitting mode
-while a sky observation would be carried out in receiving mode, we correct our
-results in order to map them real observations.
 
 %Reflections cause the sky signal to appear at various delays. We aim to measure
 %the relative signal strength at those various delays, referred to as the
@@ -114,21 +106,26 @@ results in order to map them real observations.
 %transmitting mode while an observation would be carried out in receiving mode,
 %we correct our results in order to map them to represent real observations.
 
-If the initial pulse is a broadband signal, $P_{tr}$, sent to the feed antenna via a $75m$ long cable by a vector network analyser (VNA), a delay domain measurement of the system is accomplished by measuring the complex return loss of the feed. When the signal is incident on the feed, part of the
-incident power ($\Gamma_{a}$ ) is reflected back to the measuring device (dashed red arrows in Figure \ref{fig:cartoon}) and
-$(1-\Gamma_{a})$ is radiated by the feed (solid red arrows in Figure \ref{fig:cartoon}). The signal radiated by the feed
-illuminates the dish, and the signal incident at the dish apex is reflected by
-the dish and returns to the feed. This incident signal is now reflected back
-and forth in between the feed and the dish much like the sky signal reflection
-discussed previously. Hence, if $P_{r}$ is the power incident back on the feed
-for the first time then the reflected power $P_{ref}$ back into the VNA would
-be:
+Therefore, in our experimental set-up, instead of using sky signal, we employ
+our feed as a transmitter and transmit a pulse. If the initial pulse is a broadband signal,
+$P_{tr}$, sent to the feed antenna via a $75m$ long cable by a vector network
+analyser (VNA), a delay domain measurement of the system is accomplished by
+measuring the complex return loss of the feed. When the signal is incident on
+the feed, part of the incident power ($\Gamma_{a}$ ) is reflected back to the
+measuring device (dashed red arrows in Figure \ref{fig:cartoon}) and
+$(1-\Gamma_{a})$ is radiated by the feed (solid red arrows in Figure
+\ref{fig:cartoon}). The signal radiated by the feed illuminates the dish, and
+the signal incident at the dish apex is reflected by the dish and returns to
+the feed. This incident signal is now reflected back and forth in between the
+feed and the dish much like the sky signal reflection discussed previously.
+Hence, if $P_{r}$ is the power incident back on the feed for the first time
+then the reflected power $P_{ref}$ back into the VNA would be:
 
-\begin{equation}
-P_{ref} =  P_{r}(1-\Gamma_{a}) [1+ \Gamma_{a}\Gamma_{d} e^{i\phi}+ (\Gamma_{a}\Gamma_{d})^2e^{i2\phi}+ ....+ (\Gamma_{d}\Gamma_{n})^{n}e^{in\phi}]
+\begin{equation}\label{eqn:series2}
+P_{ref} =  P_{r}(1-\Gamma_{a}) \Gamma_{d}[1+ \Gamma_{a}\Gamma_{d} e^{i\phi}+ (\Gamma_{a}\Gamma_{d})^2e^{i2\phi}+ ....+ (\Gamma_{d}\Gamma_{n})^{n}e^{in\phi}]
 \end{equation}
  
-Once again, we consider one reflection from the feed and its subsequent reflection from the dish as one reflection in total.
+Once again, note that we consider one reflection from the feed and its subsequent reflection from the dish as one reflection in total. Equation \ref{eqn:series2} is similar to Equation \ref{eqn:series1}, with different incident powers.
 
 Recall that $P_{r}$ is the initial power that is incident back on the feed, which is just the feed radiated power reflected off the dish:
  
@@ -140,17 +137,21 @@ Also note that the first reflection of the signal sent by the VNA occurs at the 
 
 \begin{eqnarray}
 P_{ret} & = & \Gamma_{a}P_{tr} \nonumber\\ 
- & + &   \Gamma_{d}(1-\Gamma_a) P_{tr}(1-\Gamma_{a}) [1+ \Gamma_{a}\Gamma_{d} e^{i\phi}+  ....+ (\Gamma_{d}\Gamma_{n})^{n}e^{in\phi}]\nonumber\\
+ & + &   \Gamma_{d}^{2}(1-\Gamma_a) P_{tr}(1-\Gamma_{a}) [1+ \Gamma_{a}\Gamma_{d} e^{i\phi}+  ....+ (\Gamma_{d}\Gamma_{n})^{n}e^{in\phi}]\nonumber\\
  \end{eqnarray}
  
 Simplifying:
  
   \begin{eqnarray}\label{eqn:ratio2}
  {P_{ret} \over P_{tr} } & = & \Gamma_{a}
-  +  \Gamma_{d}(1-\Gamma_a)^{2}  {1-(\Gamma_{d}\Gamma_{a})^{n} \over 1-\Gamma_{d} \Gamma_{a} } \nonumber\\
+  +  \Gamma_{d}^{2}(1-\Gamma_a)^{2}  {1-(\Gamma_{d}\Gamma_{a}e^{i\phi})^{n} \over 1-\Gamma_{d} \Gamma_{a}e^{i\phi} } \nonumber\\
 \end{eqnarray}
 
-The ratio in Equation \ref{eqn:ratio2} is the returned power to the VNA with respect to the transmitted power sent by the VNA. It is similar to the sky observation case in \ref{eqn:ratio1} but differs in amplitude????
+The ratio in Equation \ref{eqn:ratio2} is the returned power to the VNA with
+respect to the transmitted power sent by the VNA. It is identical to the sky
+observation case in Equation \ref{eqn:ratio1} but differs by two factors.....  Therefore, because our measurement is carried out in transmitting mode
+while a sky observation would be carried out in receiving mode, we correct our
+results in order to map them real observations.
 
 The result that the VNA measures is the magnitude and phase of the quantity
 ${P_{ret}\over P_{tr}}$ as a function of frequencies which is plotted in Figure
