@@ -20,11 +20,11 @@ systematic effects in measured data. One such non-ideality is the mismatch
 between the impedance of free space and the antenna and transmission line,
 which results in a partial coupling of the sky signal into the antenna while
 the rest is reflected into space. For any reflector antenna, such as the HERA
-dish antenna,this signal illuminates the reflector and part of it reflects back
-and forth several times in between the dish feed and the vertex of the dish.
-Such reflections generate multiple reduced strength copies of the incident sky
-signal at various delays, and this produces spurious correlations in the
-visibilities of interferometric data. 
+dish antenna, this signal illuminates the reflector and part of it reflects
+back and forth several times in between the dish feed and the vertex of the
+dish.  Such reflections generate multiple reduced strength copies of the
+incident sky signal at various delays, and this produces spurious correlations
+in the visibilities of interferometric data. 
 
 The design specification of HERA elements is such that the amplitude of the
 signal that arrives at the feed at a delay of $60ns$ (after multiple
@@ -40,14 +40,20 @@ Reionization.
 \begin{figure}
 \centering
 \includegraphics[totalheight=0.3\textheight]{plots/reflection_cartoon.png}
-\caption{The blue solid lines represent an original sky signal entering the feed. A small percentage of it (dashed blue) is reflected off the dish, and it is these reflections that we are concerned about. In our measurements however, the reflections measured contain most of the original pulse signal (solid red), so it is crucial to adjust for this difference in our analysis.}
+\caption{The blue solid lines represent an original sky signal entering the
+feed. A small percentage of it (dashed blue) is reflected off the dish, and it
+is these reflections that we are concerned about. In our measurements however,
+the reflections measured contain most of the original pulse signal (solid red),
+so it is crucial to adjust for this difference in our analysis.}
 \label{fig:cartoon}
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics[totalheight=0.4\textheight]{plots/frequency_amp_phase_fullbw.png}
-\caption{Amplitude and phase of the measured return loss. Colored dashed lines mark three different frequency bands: $140-160MHz$, $100-200MHz$, and $50-250MHz$.}
+\caption{Amplitude and phase of the measured return loss. Colored dashed lines
+mark three different frequency bands: $140-160MHz$, $100-200MHz$, and
+$50-250MHz$.}
 \label{fig:freq}
 \end{figure}
 
@@ -85,14 +91,13 @@ with respect to the incident sky power. Realistically, the incident sky power
 is not easily quantifiable, but it is a quantity we need to know to accurately
 characterize reflections.  
 
-Therefore, in our experimental set-up, instead of using sky signal, we make use
-of the reciprocity theorem for antennas and employ our feed first as a
-transmitter. We send a known amplitude pulse that is transmitted through the feed, creating a reversed situation where most of our
-original signal contributes to reflections while a small percentage reflects
-back down the cable. Therefore, since
-our measurement is carried out in transmitting mode while a sky observation
-would be carried out in receiving mode, we correct our results in order to map
-them to represent real observations.
+Therefore, in our experimental set-up, instead of using sky signal, we employ 
+our feed first as a transmitter. We send a pulse that is transmitted through
+the feed, creating a reversed situation where most of our original signal
+contributes to reflections while a small percentage reflects back down the
+cable. Therefore, since our measurement is carried out in transmitting mode
+while a sky observation would be carried out in receiving mode, we correct our
+results in order to map them real observations.
 
 %Reflections cause the sky signal to appear at various delays. We aim to measure
 %the relative signal strength at those various delays, referred to as the
