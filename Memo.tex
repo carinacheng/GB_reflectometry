@@ -17,13 +17,13 @@
 There are several different sources of instrumental chromaticity for an
 interferometer such as HERA that can introduce unwanted systematics in data
 (Cite Dish Memo). One such source is the antenna, which can introduce
-spectrally structure in data due to delays associated with signal reflections.
-The HERA element was designed to minimize this effect - the contamination
-outside the foreground `wedge' - so that the expected level of the 21cm
-reionization signal that we are interested in still dominates this region. In
-order to achieve this, any reflections should be 60dB down from the incident
-sky signal  at a delay of 60ns. This has been implemented in the HERA element
-design, setting a constraint on the level of reflections. 
+spectral structure in the measured visibilities due to delays associated with
+signal reflections.  The HERA element was designed to minimize this effect -
+the contamination outside the foreground `wedge' - so that the expected level
+of the 21cm reionization signal that we are interested in still dominates this
+region. In order to achieve this, any reflections should be 60dB below the
+incident sky signal  at a delay of 60ns. This has been implemented in the HERA
+element design, setting a constraint on the level of reflections. 
 
 Understanding the nature of antenna reflections in the HERA dish is of the
 utmost importance in characterizing the performance of the dish. As HERA
@@ -73,13 +73,11 @@ $n^{th}$ reflection off the feed and the dish is:
 P_{in} =  P_{sky}(1-\Gamma_{a})\Gamma_{d} [1+ \Gamma_{a}\Gamma_{d} e^{i\phi}+ (\Gamma_{a}\Gamma_{d})^2e^{i2\phi}+ ....+ (\Gamma_{d}\Gamma_{n})^{n}e^{in\phi}]
 \end{equation}
 
-where, $\phi = ({2\pi \over c})f 2l$ is the propagation delay of a lightwave of frequency $f$ due to a reflection over a focal distance $l$. 
+where, $\phi = 2l({2\pi \over c})f$ is the propagation delay of a lightwave of frequency $f$ due to a reflection over a focal distance $l$. 
 Therefore:
-[XXX should there be a phase term in the series representation in the equation
-below?]
 \begin{eqnarray}
 {P_{in} \over P_{sky} } & = & (1-\Gamma_{a})\Gamma_{d} [1+ \Gamma_{a}\Gamma_{d} e^{i\phi}+ (\Gamma_{a}\Gamma_{d})^2e^{i2\phi}+ ....+ (\Gamma_{d}\Gamma_{n})^{n}e^{in\phi}] \nonumber\\
-      & = & (1-\Gamma_{a})\Gamma_{d} {1-(\Gamma_{d}\Gamma_{a})^{n} \over 1-\Gamma_{d} \Gamma_{a} } 
+      & = & (1-\Gamma_{a})\Gamma_{d} {1-(\Gamma_{d}\Gamma_{a}\e^{i\phi})^{n} \over 1-\Gamma_{d} \Gamma_{a} e^{i\phi} } 
 \end{eqnarray}
 
 Reflections cause an input signal to have ripples of various frequencies over its passband, which manifest themselves as non-zero signals at various delays in the delay domain. We aim to measure the relative signal strength at various delays, referred to as the ``delay spectrum" hereafter, to estimate various levels of reflections in between the feed and the dish apex.
