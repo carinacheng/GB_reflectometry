@@ -14,9 +14,28 @@
 
 \section{Introduction}
 
-There are several different sources of instrumental chromaticity for radio telescope systems that can result in non-ideal performances and unwanted systematic effects in measured data. One such non-ideality is the mismatch between the impedance of free space and the antenna and transmission line, which results in a partial coupling of the sky signal into the antenna while the rest is reflected into space. For any reflector antenna, such as the HERA dish antenna, sky signal illuminates the reflector and part of it reflects back and forth several times in between the dish feed and the vertex of the dish. Such reflections generate multiple reduced strength copies of the incident sky signal at various delays, and this produces spurious correlations in the visibilities of interferometric data. 
+There are several different sources of instrumental chromaticity for radio
+telescope systems that can result in non-ideal performances and unwanted
+systematic effects in measured data. One such non-ideality is the mismatch
+between the impedance of free space and the antenna and transmission line,
+which results in a partial coupling of the sky signal into the antenna while
+the rest is reflected into space. For any reflector antenna, such as the HERA
+dish antenna,this signal illuminates the reflector and part of it reflects back
+and forth several times in between the dish feed and the vertex of the dish.
+Such reflections generate multiple reduced strength copies of the incident sky
+signal at various delays, and this produces spurious correlations in the
+visibilities of interferometric data. 
 
-The design specification of HERA elements is such that the amplitude of the signal that arrives at the feed at a delay of $60ns$ (after multiple reflections off the dish) should be reduced by $60dB$ relative to the first incident signal at the feed. We aim to verify this by carrying out Time Domain Reflectometry (TDR) at the HERA antenna prototype in Green Bank, WV. Understanding the nature of antenna reflections in the HERA dish is of the utmost importance in characterizing the performance of the dish. As HERA progresses as an experiment, it is necessary to build optimal dishes that aim to minimize the challenges of chromaticity in our quest for the Epoch of Reionization.
+The design specification of HERA elements is such that the amplitude of the
+signal that arrives at the feed at a delay of $60ns$ (after multiple
+reflections off the dish) should be reduced by $60dB$ relative to the first
+incident signal at the feed. We aim to verify this by carrying out Time Domain
+Reflectometry (TDR) at the HERA antenna prototype in Green Bank, WV.
+Understanding the nature of antenna reflections in the HERA dish is of the
+utmost importance in characterizing the performance of the dish. As HERA
+progresses as an experiment, it is necessary to build optimal dishes that aim
+to minimize the challenges of chromaticity in our quest for the Epoch of
+Reionization.
 
 \begin{figure}
 \centering
@@ -56,21 +75,21 @@ P_{in} =  P_{sky}(1-\Gamma_{a})\Gamma_{d} [1+ \Gamma_{a}\Gamma_{d} e^{i\phi}+ (\
 
 where, $\phi = 2l({2\pi \over c})f$ is the propagation delay of a lightwave of frequency $f$ due to a reflection over a focal distance $l$. 
 Therefore:
-\begin{eqnarray}
+\begin{eqnarray}\label{eqn:ratio1}
 {P_{in} \over P_{sky} } & = & (1-\Gamma_{a})\Gamma_{d} [1+ \Gamma_{a}\Gamma_{d} e^{i\phi}+ (\Gamma_{a}\Gamma_{d})^2e^{i2\phi}+ ....+ (\Gamma_{d}\Gamma_{n})^{n}e^{in\phi}] \nonumber\\
       & = & (1-\Gamma_{a})\Gamma_{d} {1-(\Gamma_{d}\Gamma_{a}e^{i\phi})^{n} \over 1-\Gamma_{d} \Gamma_{a} e^{i\phi} } 
 \end{eqnarray}
 
-The ratio in Equation \ref{} quantifies the amount of power received with
-respect to the incident sky power. Realistically, the incident sky power is not
-easily quantifiable, but is a quantity we need to know to accurately
+The ratio in Equation \ref{eqn:ratio1} quantifies the amount of power received
+with respect to the incident sky power. Realistically, the incident sky power
+is not easily quantifiable, but it is a quantity we need to know to accurately
 characterize reflections.  
 
 Therefore, in our experimental set-up, instead of using sky signal, we make use
 of the reciprocity theorem for antennas and employ our feed first as a
 transmitter. We send a known amplitude pulse that is transmitted through the feed, creating a reversed situation where most of our
 original signal contributes to reflections while a small percentage reflects
-back down the cable (red arrows in Figure \ref{fig:cartoon}). Therefore, since
+back down the cable. Therefore, since
 our measurement is carried out in transmitting mode while a sky observation
 would be carried out in receiving mode, we correct our results in order to map
 them to represent real observations.
@@ -90,7 +109,7 @@ them to represent real observations.
 %transmitting mode while an observation would be carried out in receiving mode,
 %we correct our results in order to map them to represent real observations.
 
-If the initial pulse is a broadband signal, $P_{tr}$, sent to the feed antenna via a $75m$ long cable by a vector network analyser (VNA), a delay spectrum measurement of the system is accomplished by measuring the complex return loss of the feed. When the signal is incident on the feed, part of the
+If the initial pulse is a broadband signal, $P_{tr}$, sent to the feed antenna via a $75m$ long cable by a vector network analyser (VNA), a delay domain measurement of the system is accomplished by measuring the complex return loss of the feed. When the signal is incident on the feed, part of the
 incident power ($\Gamma_{a}$ ) is reflected back to the measuring device (dashed red arrows in Figure \ref{fig:cartoon}) and
 $(1-\Gamma_{a})$ is radiated by the feed (solid red arrows in Figure \ref{fig:cartoon}). The signal radiated by the feed
 illuminates the dish, and the signal incident at the dish apex is reflected by
@@ -106,7 +125,7 @@ P_{ref} =  P_{r}(1-\Gamma_{a}) [1+ \Gamma_{a}\Gamma_{d} e^{i\phi}+ (\Gamma_{a}\G
  
 Once again, we consider one reflection from the feed and its subsequent reflection from the dish as one reflection in total.
 
-Recall that $P_{r}$ is the power incident back on the feed, which is just the feed radiated power reflected off the dish:
+Recall that $P_{r}$ is the initial power that is incident back on the feed, which is just the feed radiated power reflected off the dish:
  
 \begin{equation}
 P_{r}= \Gamma_{d}(1-\Gamma_a) P_{tr}
@@ -121,12 +140,21 @@ P_{ret} & = & \Gamma_{a}P_{tr} \nonumber\\
  
 Simplifying:
  
-  \begin{eqnarray}
+  \begin{eqnarray}\label{eqn:ratio2}
  {P_{ret} \over P_{tr} } & = & \Gamma_{a}
   +  \Gamma_{d}(1-\Gamma_a)^{2}  {1-(\Gamma_{d}\Gamma_{a})^{n} \over 1-\Gamma_{d} \Gamma_{a} } \nonumber\\
 \end{eqnarray}
 
-The VNA measures the magnitude and phase of the quantity ${P_{ret}\over P_{tr}}$ as a function of frequencies which is plotted in Figure \ref{fig:freq}. In our measurement set-up, the first reflection occurs at the antenna terminal $\Gamma_{a}$, so $({P_{ret} \over P_{tr} }  - \Gamma_{a}) $ gives an estimate of the delay spectrum of the sky signal. In the delay domain, the relative signal strength at zero delay represents the factor $\Gamma_{a}$ while the signal strength at any other delay represents any delayed signal that enters the feed after being reflected from the feed surroundings. 
+The ratio in Equation \ref{eqn:ratio2} is the returned power to the VNA with respect to the transmitted power sent by the VNA. It is similar to the sky observation case in \ref{eqn:ratio1} but differs in amplitude????
+
+The result that the VNA measures is the magnitude and phase of the quantity
+${P_{ret}\over P_{tr}}$ as a function of frequencies which is plotted in Figure
+\ref{fig:freq}. In our measurement set-up, the first reflection occurs at the
+antenna terminal $\Gamma_{a}$, so $({P_{ret} \over P_{tr} }  - \Gamma_{a}) $
+gives an estimate of the delay spectrum of the sky signal. In the delay domain,
+the relative signal strength at zero delay represents the factor $\Gamma_{a}$
+while the signal strength at any other delay represents any delayed signal that
+enters the feed after being reflected from the feed surroundings. 
 
 \section{Methodology}{\label{sec:methods}}
 
