@@ -115,11 +115,13 @@ the feed, part of the incident power ($\Gamma_{a}$ ) is reflected back to the
 measuring device (dashed red arrows in Figure \ref{fig:cartoon}) and
 $(1-\Gamma_{a})$ is radiated by the feed (solid red arrows in Figure
 \ref{fig:cartoon}). The signal radiated by the feed illuminates the dish, and
-the signal incident at the dish apex is reflected by the dish and returns to
-the feed. This incident signal is now reflected back and forth in between the
-feed and the dish much like the sky signal reflection discussed previously.
-Hence, if $P_{r}$ is the power incident back on the feed for the first time
-then the reflected power $P_{ref}$ back into the VNA would be:
+the signal incident at the dish vertex is reflected by the dish and returns to
+the feed. [XXX All the signal incident on the dish is reflected, but we are
+only considering radiation from the vertex]. This incident signal is now
+reflected back and forth in between the feed and the dish much like the sky
+signal reflection discussed previously.  Hence, if $P_{r}$ is the power
+incident back on the feed for the first time then the reflected power $P_{ref}$
+back into the VNA would be:
 
 \begin{equation}\label{eqn:series2}
 P_{ref} =  P_{r}(1-\Gamma_{a}) \Gamma_{d}[1+ \Gamma_{a}\Gamma_{d} e^{i\phi}+ (\Gamma_{a}\Gamma_{d})^2e^{i2\phi}+ ....+ (\Gamma_{d}\Gamma_{n})^{n}e^{in\phi}]
@@ -149,18 +151,24 @@ Simplifying:
 
 The ratio in Equation \ref{eqn:ratio2} is the returned power to the VNA with
 respect to the transmitted power sent by the VNA. It is identical to the sky
-observation case in Equation \ref{eqn:ratio1} but differs by two factors.....  Therefore, because our measurement is carried out in transmitting mode
-while a sky observation would be carried out in receiving mode, we correct our
-results in order to map them real observations.
+observation case in Equation \ref{eqn:ratio1} but differs by two factors. The
+first factor corresponds to an additive amplitude difference arising from
+$\Gamma_{a}$, which physically accounts for the initial reflection at the feed.
+The second difference is a multiplicative term which informs us about the first
+reflection. Both of these terms need to be corrected for in order to relate our
+measurements to real observations.
+%Therefore, because our measurement is carried out in transmitting mode
+%while a sky observation would be carried out in receiving mode, we correct our
+%results in order to map them real observations.
 
-The result that the VNA measures is the magnitude and phase of the quantity
-${P_{ret}\over P_{tr}}$ as a function of frequencies which is plotted in Figure
-\ref{fig:freq}. In our measurement set-up, the first reflection occurs at the
-antenna terminal $\Gamma_{a}$, so $({P_{ret} \over P_{tr} }  - \Gamma_{a}) $
-gives an estimate of the delay spectrum of the sky signal. In the delay domain,
-the relative signal strength at zero delay represents the factor $\Gamma_{a}$
-while the signal strength at any other delay represents any delayed signal that
-enters the feed after being reflected from the feed surroundings. 
+The VNA measures the magnitude and phase of the quantity ${P_{ret}\over P_{tr}}$
+as a function of frequency as shown in Figure \ref{fig:freq}. In our measurement
+set-up, the first reflection occurs at the antenna terminal $\Gamma_{a}$, so
+$({P_{ret} \over P_{tr} }  - \Gamma_{a}) $ gives an estimate of the delay
+spectrum of the sky signal. In delay domain, the relative signal strength at
+zero delay represents the factor $\Gamma_{a}$ while the signal strength at any
+other delay represents any delayed signal that enters the feed after being
+reflected from the feed surroundings. 
 
 \section{Methodology}{\label{sec:methods}}
 
