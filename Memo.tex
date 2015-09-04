@@ -170,24 +170,40 @@ zero delay represents the factor $\Gamma_{a}$ while the signal strength at any
 other delay represents any delayed signal that enters the feed after being
 reflected from the feed surroundings. 
 
+[XXXAnother bit about corrections at low and high delays needs to be in here. 
+
+
 \section{Methodology}{\label{sec:methods}}
 
-To measure the delays associated with reflections within the dish and feed, we
-used a HERA dish (Figure \ref{fig:heradish} built at the NRAO site in Green
-Bank, WV. The dish is a $14m$ diameter parabolic reflector structurally
-supported with 3 telephone poles. The reflective material is made up of 1cm
-[XXX?] wire
-mesh that is attached to PVC pipes that form the parabolic shape. With the
-current iteration of the HERA dish, the feed is a PAPER dipole encased in a cylindrical cage
-encompassing the backplane. The PAPER feed and the backplane (which prevents
-feed-to-feed interaction between neighboring dishes) is raised and lowered by a
-three-pulley system. The focal height of the dish is $4.5m$ ($\sim{14.76}$ft).
-The heights measured in our experiment were made from the balun to the top of
-the concrete hub. However, the focal height should be measured from the
-backplane to point where the wire mesh would intersect the concrete hub at the
-vertex of the dish. To account for this height discrepency, we add 1.96 ft to
-all of our measured heights. These are the heights quoted in the plots.[XXX not
-done yet but will be done]
+The reflectometry measurements used the prototype HERA dish (Figure
+\ref{fig:heradish}) at NRAO in Green Bank, WV. The dish is a $14\,m$ diameter
+parabolic reflector structurally supported with 3 telephone poles. The
+reflective material is made up of $1\,cm$ wire mesh that is attached to PVC
+pipes that form the parabolic shape of the dish. With the current iteration of
+the HERA dish, the feed consists of a PAPER dipole encased in a cylindrical cage
+encompassing the backplane. The PAPER feed and the backplane (which is aimed at
+preventing feed-to-feed interaction between neighboring dishes) is raised and
+lowered by a three-pulley system. The focal height of the dish is $4.5m$
+($\sim{14.76}$ft).  
+
+
+%The heights measured in our experiment were made from
+%the balun to the top of the concrete hub. However, the focal height should be
+%measured from the backplane to point where the wire mesh would intersect the
+%concrete hub at the vertex of the dish. To account for this height discrepency,
+%we add 1.96 ft to all of our measured heights. These are the heights quoted in
+%the plots.[XXX not done yet but will be done]
+The measurements were made with a FieldFox in VNA mode. In this mode, a pulse,
+is generated in the FieldFox and sent through a $75ft$ $50\Omega$ cable that
+connects to the feed with a 4:1 passive balun. The return loss as a function of
+frequency, from 50 to $500MHz$, is saved.  Both the amplitude of the relative
+power and phase information are saved.  The frequency and delay resolution of
+the measurements is $\Delta\nu = 0.44 Mhz$ and $\Delta{t}=2.22ns$, respectively.
+In addition, we note that the round trip of a reflection from feed to the dish
+is $9\,m$, which correspinds to a delay of $30\,ns$.
+
+
+
 %Feed heights quoted in our measurements represent the distance from the balun to
 %the top of the central concrete hub. However, the actual focal height
 %of the dish represents the distance from the backplane of the feed to the dish's
@@ -197,15 +213,20 @@ done yet but will be done]
 %sandwich to the top of the the cage and .26 ft from the top of the concrete hub
 %to the middle where the parabola starts)
 
-The following reflectometry measurements were taken on July 20-23, 2015 using a
-FieldFox unit in Network Analyzer mode. A pulse is generated in the FieldFox
-and sent through a $75ft$ $50\Omega$ cable that connects to the feed with a 4:1
-passive balun. The return loss as a function of frequency is saved. Both
-the amplitude of the power and phase information are saved. Our
-measurements are taken for a frequency bandwidth of $50$ to $500MHz$. 
+%need to add in third : Antenna feed focal length 4.5 m which corresponds to a
+%signal propagation delay of 0.3 ns. Hence, subsequent reflections from the dish
+%vertex are expected to be at a delay which is integral multiple of 0.3 nS.
 
-Measurements are transformed into the delay domain during post-processing so that window functions
-can be used in the Fourier transform. Without a window function, taking the Fourier transform of a finite data series (such as the return loss over a finite bandwidth), which can be interpreted as a square window function, is equivalent to convolving the Fourier transformed data with a $sinc$ function. This results in excess power at high delays due to the sidelobes in the $sinc$ function. Consequently, we have chosen to use a Blackman-Harris window function when moving into the delay domain. The effectiveness of this window function compared to a square window function is illustrated in Figure \ref{fig:window}.
+In order to make our delay domain return loss measurements, we Fourier transform
+the frequency domain data we inherently measure with the VNA. However, since  we
+are Fourier transforming a finite data series, and therfore a series multiplied
+by a square window function, we are actually convolving the fourier transform of
+our measurements with a $sinc$ function. This results in excess power at high
+delays due to the sidelobes of the $sinc$ function. To minimize the sidelobes we
+ need to use an appropriate window function before taking the Fourier transform.
+We have chosen a Hamming [XXX] window in measuremnts. The effectiveness of this
+window function compared to a square windoe function is illustrated in Figure
+\ref{fig:window}.
 
 \begin{figure}
 \centering
@@ -214,7 +235,17 @@ can be used in the Fourier transform. Without a window function, taking the Four
 \label{fig:window}
 \end{figure}
 
-As mentioned in Section \ref{sec:theory}, there is a mis-match in amplitude between the reflections that we measure (originating from the FieldFox pulse) and reflections produced by sky signal. The reflections that we measure (at high delays) must be lowered by a factor to represent weaker reflections that would occur after most of the sky signal is received by the feed. For our compensation, we multiply our entire delay spectrum by its DC component. We note that this correction is only accurate at high delays where our reflections of interest occur. At low delays, our spectrum amplitude should be increased to represent the original sky signal, but we do not apply this correction because it is not relevant to our analysis.
+As mentioned in Section \ref{sec:theory}, there is a mis-match in amplitude
+between the reflections that we measure (originating from the FieldFox pulse)
+and reflections produced by sky signal. The reflections that we measure (at high
+delays) must be lowered by a factor to represent weaker reflections that would
+occur after most of the sky signal is received by the feed. For our
+compensation, we multiply our entire delay spectrum by its DC component [XXX
+what factor is this in the above equations. Why can we ignore the other factor].
+We note that this correction is only accurate at high delays where our
+reflections of interest occur. At low delays, our spectrum amplitude should be
+increased to represent the original sky signal, but we do not apply this
+correction because it is not relevant to our analysis.
 
 \begin{figure}
 \centering
