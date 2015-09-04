@@ -37,8 +37,12 @@ fq, phs= fromcsv(file_base + phs)
 
 valid = n.where(n.logical_and(fq>.1, fq<.2))
 dw, d, tau = take_delay(amps[valid], phs[valid], fq[valid])
+dwhm, d, tau = take_delay(amps[valid], phs[valid], fq[valid], window='hamming')
+dwhn, d, tau = take_delay(amps[valid], phs[valid], fq[valid], window='hanning')
 p.plot(tau, 10*n.log10(n.abs(dw)**2), linewidth=2, label='blackman-harris', color=colors[0])
 p.plot(tau, 10*n.log10(n.abs(d)**2), linewidth=2, label='square', color = colors[1])
+p.plot(tau, 10*n.log10(n.abs(dwhm)**2), linewidth=2, label='hamming', color=colors[2])
+p.plot(tau, 10*n.log10(n.abs(dwhn)**2), linewidth=2, label='hanning', color=colors[3])
 
 p.xlim(-30,350) 
 p.ylim(-100, 1)
