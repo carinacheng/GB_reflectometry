@@ -219,13 +219,13 @@ is $9m$, which corresponds to a delay of $30ns$.
 
 In order to make our delay domain return loss measurements, we Fourier transform
 the frequency domain data we inherently measure with the VNA. However, since  we
-are Fourier transforming a finite data series, and therfore a series multiplied
-by a square window function, we are actually convolving the fourier transform of
+are Fourier transforming a finite data series, and therefore a series multiplied
+by a square window function, we are actually convolving the Fourier transform of
 our measurements with a $sinc$ function. This results in excess power at high
 delays due to the sidelobes of the $sinc$ function. To minimize the sidelobes we
  must use an appropriate window function before taking the Fourier transform.
-We have chosen a Hamming [XXX] window for our analysis. The effectiveness of this
-window function compared to a square window function is illustrated in Figure
+We have chosen a Hamming window for our analysis. The effectiveness of this
+window function compared to others is illustrated in Figure
 \ref{fig:window}.
 
 \begin{figure}
@@ -240,7 +240,7 @@ window function compared to a square window function is illustrated in Figure
 \begin{figure}
 \centering
 \includegraphics[totalheight=0.4\textheight]{plots/bh_vs_sq.png}
-\caption{Delay plot produced using a Blackman-Harris window function vs. a square window function for the PAPER bandwidth.}
+\caption{Delay plot produced for the PAPER bandwidth ($100MHz-200MHz$) using four different window functions: Blackman-Harris, Hamming, Hanning, and square.}
 \label{fig:window}
 \end{figure}
 
@@ -266,15 +266,15 @@ reflections can clearly be seen outside of the PAPER bandwidth. This is not
 surprising, since the feed is tuned specifically for PAPER. The return loss
 minima are locations where our feed is well-matched to free space.
 
-In Figure \ref{fig:3bands}, the return loss is plotted versus delay for three
+In Figure \ref{fig:3bands}, the return loss we measure is plotted versus delay for three
 chosen bandwidths: the HERA bandwidth, the PAPER bandwidth, and a typical power
-spectra bandwidth when using a Blackman-Harris window function. It is again
-shown that the reflections are minimized for the PAPER bandwidth. 
+spectra bandwidth when using a Hamming window function. A fourth measurement is also plotted using the PAPER bandwidth. This measurement was taken a year ago using a prototype HERA dish in Berkeley, and one of the main differences was that the feed was not encompassed in a cage. From the plot, it is again
+shown that the reflections are minimized for the PAPER bandwidth. It appears that the cage surrounding the feed increases the level of reflections.
 
 \begin{figure}
 \centering
 \includegraphics[totalheight=0.4\textheight]{plots/delay3_window.png}
-\caption{Delay plots produced using a Blackman-Harris window function for 3 different frequency bandwidths: $50MHz-250MHz$ (``hera"), $100MHz-200MHz$ (``paper"), and $140MHz-160MHz$ (``pspec"). The black dashed lines illustrate our ``60 by 60" specification.}
+\caption{Delay plots produced using a Hamming window function for 4 different frequency bandwidths: $50MHz-250MHz$ (HERA bandwidth), $100MHz-200MHz$ (PAPER bandwidth), $140MHz-160MHz$ (typical power spectrum bandwidth), and $100MHz-200MHz$ (data taken at an earlier time; feed with no cage). The black dashed lines illustrate our ``60 by 60" specification.}
 \label{fig:3bands}
 \end{figure}
 
@@ -287,7 +287,7 @@ at higher delays we notice discrepancies between the different heights.
 \begin{figure}
 \centering
 \includegraphics[totalheight=0.4\textheight]{plots/delay_heights_paper.png}
-\caption{Delay plots produced using a Blackman-Harris window function for 4 different feed heights and the PAPER bandwidth. The black dashed lines illustrate our ``60 by 60" specification.}
+\caption{Delay plots produced using a Hamming window function for 4 different feed heights and the PAPER bandwidth ($100MHz-200MHz$). The black dashed lines illustrate our ``60 by 60" specification.}
 \label{fig:elevator}
 \end{figure}
 
@@ -295,12 +295,12 @@ Finally, Figure \ref{fig:outofthedish} presents measurements taken of the feed
 away from the dish. Echosorb is placed under the feed for some of the
 measurements, with the expectation that it will prevent any reflections off the
 ground. Measurements are also taken of the feed inside its metal cage in
-various configurations. 
+various configurations. It is shown that the feed performs best without the cage and with the absorber. 
 
 \begin{figure}
 \centering
 \includegraphics[totalheight=0.4\textheight]{plots/delay_feed.png}
-\caption{Delay plots produced using a Blackman-Harris window function for different lone feed configurations and the PAPER bandwidth. The black dashed lines illustrate our ``60 by 60" specification.}
+\caption{Delay plots produced using a Hamming window function for different lone feed configurations and the PAPER bandwidth ($100MHz-200MHz$). The black dashed lines illustrate our ``60 by 60" specification.}
 \label{fig:outofthedish}
 \end{figure}
 
