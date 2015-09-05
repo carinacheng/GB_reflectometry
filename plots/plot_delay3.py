@@ -61,8 +61,9 @@ valids = {
           '50 - 250 MHz'  : n.where(n.logical_and(fq>.05 ,fq<.25)), 
           '100 - 200 MHz' : n.where(n.logical_and(fq>.1 ,fq<.2)), 
           '140 - 160 MHz' : n.where(n.logical_and(fq>.140 ,fq<.160)),
-          '100 - 200 MHz (no cage, device fft)' : None,
+          'no cage, device fft' : None,
           '100 - 200 MHz (no cage)' : n.where(n.logical_and(dfreq>.1, dfreq<.2))
+          #'100 - 200 MHz (no cage)' : n.ones(len(dfreq), dtype=n.bool)#n.where(n.logical_and(dfreq>.1, dfreq<.2))
 #          'second' : n.where(n.logical_and(fq>.250 ,fq<.500))
          }
 
@@ -83,7 +84,7 @@ valids = {
 
 for i,v in enumerate(valids.keys()):
     print v
-    if v == '100 - 200 MHz (no cage, device fft)':
+    if v == 'no cage, device fft':
         p.plot(dns, ddb, linewidth=2, label='%s'%v, color=colors[i])
         print dns,ddb
     elif v == '100 - 200 MHz (no cage)':
