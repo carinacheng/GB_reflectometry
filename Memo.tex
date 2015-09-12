@@ -112,7 +112,7 @@ our feed as a transmitter and transmit a pulse. If the initial pulse is a broadb
 $P_{tr}$, sent to the feed antenna via a $75m$ long cable by a vector network
 analyser (VNA), a delay domain measurement of the system is accomplished by
 measuring the complex return loss of the feed. When the signal is incident on
-the feed, part of the incident power ($\Gamma_{a}$ ) is reflected back to the
+the feed, part of the incident power ($\Gamma_{a}$) is reflected back to the
 measuring device (dashed red arrows in Figure \ref{fig:cartoon}) and
 $(1-\Gamma_{a})$ is radiated by the feed (solid red arrows in Figure
 \ref{fig:cartoon}). The signal radiated by the feed illuminates the dish, and
@@ -172,9 +172,6 @@ spectrum of the sky signal. In delay domain, the relative signal strength at
 zero delay represents the factor $\Gamma_{a}$ while the signal strength at any
 other delay represents any delayed signal that enters the feed after being
 reflected from the feed surroundings. 
-
-[XXXAnother bit about corrections at low and high delays needs to be in here. 
-
 
 \section{Methodology}{\label{sec:methods}}
 
@@ -252,8 +249,7 @@ between the reflections that we measure (originating from the FieldFox pulse)
 and reflections produced by sky signal. The reflections that we measure (at high
 delays) must be lowered by a factor to represent weaker reflections that would
 occur after most of the sky signal is received by the feed. For our
-compensation, we multiply our entire delay spectrum by its DC component [XXX
-what factor is this in the above equations. Why can we ignore the other factor].
+compensation, we multiply our entire delay spectrum by its DC component, which is the feed reflection coefficient $\Gamma_{a}$, and also divide by ($1-\Gamma_{a}$). In other words, this correction factor equates Equation \ref{eqn:ratio2} with Equation \ref{eqn:ratio1}. 
 We note that this correction is only accurate at high delays where our
 reflections of interest occur. At low delays, our spectrum amplitude should be
 increased to represent the original sky signal, but we do not apply this
@@ -311,5 +307,6 @@ various configurations. It is shown that the feed performs best without the cage
 
 \section{Conclusion}
 
+*write something mind-blowing here*
 
 \end{document}

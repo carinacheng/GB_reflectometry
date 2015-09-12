@@ -38,8 +38,9 @@ def take_delay(db, ph, fq, window='blackman-harris'):
     
     if True:
     #if False:
-        _dw *= n.abs(_dw[0])  # these should be changed to the dc bin of the windowed data.
-        _d *= n.abs(_d[0]) 
+        
+        _dw *= ( n.abs(_dw[0])/ (1- n.abs(_dw[0])))  # these should be changed to the dc bin of the windowed data.
+        _d *= ( n.abs(_d[0])/ (1- n.abs(_d[0])))  # these should be changed to the dc bin of the windowed data.
 
     return n.fft.fftshift(_dw), n.fft.fftshift(_d), n.fft.fftshift(tau)
 
@@ -81,7 +82,6 @@ valids = {
 #    axes[i].set_ylabel('return loss (dB)')
 #    axes[i].grid(1)
 #    axes[i].legend() 
-
 for i,v in enumerate(valids.keys()):
     print v
     if v == 'no cage, device fft':
