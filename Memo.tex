@@ -75,7 +75,7 @@ coefficient is $\Gamma_{d}$, then the net power entering the feed after an
 $n^{th}$ reflection off the feed and the dish is:
 
 \begin{equation}\label{eqn:series1}
-P_{in} =  P_{sky}(1-\Gamma_{a})[1+ \Gamma_{a}\Gamma_{d} e^{i\phi}+ (\Gamma_{a}\Gamma_{d})^2e^{i2\phi}+ ....+ (\Gamma_{a}\Gamma_{n})^{d}e^{in\phi}]
+P_{in} =  P_{sky}(1-\Gamma_{a})[1+ \Gamma_{a}\Gamma_{d} e^{i\phi}+ (\Gamma_{a}\Gamma_{d})^2e^{i2\phi}+ ....+ (\Gamma_{a}\Gamma_{a})^{n}e^{in\phi}]
 \end{equation}
 
 where, $\phi = 2l({2\pi \over c})f$ is the propagation delay of a lightwave of frequency $f$ due to a reflection over a focal distance $l$. 
@@ -125,7 +125,7 @@ incident back on the feed for the first time then the reflected power $P_{ref}$
 back into the VNA would be:
 
 \begin{equation}\label{eqn:series2}
-P_{ref} =  P_{r}(1-\Gamma_{a})[1+ \Gamma_{a}\Gamma_{d} e^{i\phi}+ (\Gamma_{a}\Gamma_{d})^2e^{i2\phi}+ ....+ (\Gamma_{d}\Gamma_{n})^{n}e^{in\phi}]
+P_{ref} =  P_{r}(1-\Gamma_{a})[1+ \Gamma_{a}\Gamma_{d} e^{i\phi}+ (\Gamma_{a}\Gamma_{d})^2e^{i2\phi}+ ....+ (\Gamma_{a}\Gamma_{d})^{n}e^{in\phi}]
 \end{equation}
  
 Once again, note that we consider one reflection from the feed and its subsequent reflection from the dish as one reflection in total. Equation \ref{eqn:series2} is similar to Equation \ref{eqn:series1}, with different incident powers.
