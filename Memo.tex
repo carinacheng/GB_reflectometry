@@ -19,7 +19,7 @@ telescope systems that can result in non-ideal performances and unwanted
 systematic effects in measured data. One such non-ideality is the mismatch
 between the impedance of free space and the antenna and transmission line,
 which results in a partial coupling of the sky signal into the antenna while
-the rest is reflected into space. For any reflector antenna, such as the HERA
+the rest is reflected back into the space. For any reflector antenna, such as the HERA
 dish antenna, this signal illuminates the reflector and part of it reflects
 back and forth several times in between the dish feed and the vertex of the
 dish.  Such reflections generate multiple reduced strength copies of the
@@ -36,7 +36,8 @@ progresses as an experiment, it is necessary to build optimal dishes that aim
 to minimize the challenges of chromaticity in our quest for the Epoch of
 Reionization.
 
-\begin{figure}
+\section{Theory}{\label{sec:theory}}
+\begin{figure}[ht!]
 \centering
 \includegraphics[totalheight=0.3\textheight]{plots/reflection_cartoon.png}
 \caption{The blue solid lines represent an original sky signal entering the
@@ -46,27 +47,16 @@ the reflections measured contain most of the original pulse signal (solid red),
 so it is crucial to adjust for this difference in our analysis.}
 \label{fig:cartoon}
 \end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[totalheight=0.4\textheight]{plots/frequency_amp_phase_fullbw.png}
-\caption{Amplitude and phase of the measured return loss. Colored dashed lines
-mark three different frequency bands: $140-160MHz$, $100-200MHz$, and
-$50-250MHz$.}
-\label{fig:freq}
-\end{figure}
-
-\section{Theory}{\label{sec:theory}}
-
 In practice, a HERA dish receives signal from the sky\footnote{All astronomical
-telescopes operate in this way.}. Plane waves incident on the parabolic dish
+telescopes operate in this way.}.
+ Plane waves incident on a parabolic dish
 are focussed at the feed with focal height $l$. For a well-designed feed, one
-that matches the impedance of free space\footnote{The impedance of free space
+that closely matches the impedance of free space\footnote{The impedance of free space
 is $Z_{0} = \mu_{0}c_{0} = \frac{1}{\epsilon_{0}c_{0}} \approx 377\Omega $.},
 most of the signal will enter the system while only
 a small percentage will be reflected back towards the dish for a secondary
 reflection into the feed (blue arrows in Figure \ref{fig:cartoon}). In the
-following discussion, we consider the reflection off the feed and the
+following discussion, we consider a reflection off the feed and the
 subsequent reflection off the dish as one reflection.
 
 Quantitatively, if the incident power from the sky signal is $P_{sky}$, the feed
@@ -78,18 +68,19 @@ $n^{th}$ reflection off the feed and the dish is:
 P_{in} =  P_{sky}(1-\Gamma_{a})[1+ \Gamma_{a}\Gamma_{d} e^{i\phi}+ (\Gamma_{a}\Gamma_{d})^2e^{i2\phi}+ ....+ (\Gamma_{a}\Gamma_{d})^{n}e^{in\phi}]
 \end{equation}
 
-where, $\phi = 2l({2\pi \over c})f$ is the propagation delay of a lightwave of frequency $f$ due to a reflection over a focal distance $l$. 
-Therefore:
+where, $\phi = 2l({2\pi \over c})f$ is the propagation delay of a lightwave of frequency $f$ due to a reflection over a focal distance $l$. Notable here is, upon first incidence, the sky signal is focussed onto the feed from the entire dish and the dish reflection coefficient $\Gamma_{d}=1$ for the first incidence. Back and forth reflection of the signal in between the feed and the dish, however, occurs from only a part of the dish which is shadowed by the feed. Therefore. in this case, $\Gamma_{d} < 1$.
+Simplifying:
 \begin{eqnarray}\label{eqn:ratio1}
 {P_{in} \over P_{sky} } & = & (1-\Gamma_{a})[1+ \Gamma_{a}\Gamma_{d} e^{i\phi}+ (\Gamma_{a}\Gamma_{d})^2e^{i2\phi}+ ....+ (\Gamma_{a}\Gamma_{d})^{n}e^{in\phi}] \nonumber\\
       & = & (1-\Gamma_{a}) \displaystyle\sum\limits_{n=0}^{n} [\Gamma_{a}\Gamma_{d}e^{i \phi}]^{n}\nonumber\\
-      & = & (1-\Gamma_{a})+ \displaystyle\sum\limits_{n=1}^{n} [\Gamma_{a}\Gamma_{d}e^{i \phi}]^{n}
+      & = & (1-\Gamma_{a})+(1-\Gamma_{a}) \displaystyle\sum\limits_{n=1}^{n} [\Gamma_{a}\Gamma_{d}e^{i \phi}]^{n}
 \end{eqnarray}
 
 The ratio in Equation \ref{eqn:ratio1} quantifies the amount of power received
 with respect to the incident sky power. Realistically, the incident sky power
 is not easily quantifiable, but it is a quantity we need to know to accurately
 characterize reflections.  
+%The right hand side of this equation consists of system parameters which are all chromatic i.e, functions of frequency.  
 
 
 %Reflections cause the sky signal to appear at various delays. We aim to measure
@@ -107,18 +98,16 @@ characterize reflections.
 %transmitting mode while an observation would be carried out in receiving mode,
 %we correct our results in order to map them to represent real observations.
 
-Therefore, in our experimental set-up, instead of using sky signal, we employ
+In our experimental set-up, instead of using sky signal, we employ
 our feed as a transmitter and transmit a pulse. If the initial pulse is a broadband signal,
 $P_{tr}$, sent to the feed antenna via a $75m$ long cable by a vector network
 analyser (VNA), a delay domain measurement of the system is accomplished by
-measuring the complex return loss of the feed. When the signal is incident on
+taking the Fourier transform of the measured complex return loss of the feed. When the signal is incident on
 the feed, part of the incident power ($\Gamma_{a}$) is reflected back to the
 measuring device (dashed red arrows in Figure \ref{fig:cartoon}) and
 $(1-\Gamma_{a})$ is radiated by the feed (solid red arrows in Figure
-\ref{fig:cartoon}). The signal radiated by the feed illuminates the dish, and
-the signal incident at the dish vertex is reflected by the dish and returns to
-the feed. [XXX All the signal incident on the dish is reflected, but we are
-only considering radiation from the vertex]. This incident signal is now
+\ref{fig:cartoon}) which illuminates the dish. While most of the incident signal is reflected back into the space by the dish, the reflected signal from the dish vertex returns to
+the feed. This incident signal is now
 reflected back and forth in between the feed and the dish much like the sky
 signal reflection discussed previously.  Hence, if $P_{r}$ is the power
 incident back on the feed for the first time then the reflected power $P_{ref}$
@@ -186,6 +175,12 @@ preventing feed-to-feed interaction between neighboring dishes) is raised and
 lowered by a three-pulley system. The focal height of the dish is $4.5m$
 ($\sim{14.76}$ft).  
 
+\begin{figure}[ht!]
+\centering
+\includegraphics[trim={2cm 20cm 30cm 15cm},clip, totalheight=0.3\textheight]{plots/heradish.jpg}
+\caption{HERA dish and feed at the Green Bank NRAO site.}
+\label{fig:heradish}
+\end{figure}
 
 %The heights measured in our experiment were made from
 %the balun to the top of the concrete hub. However, the focal height should be
@@ -195,10 +190,7 @@ lowered by a three-pulley system. The focal height of the dish is $4.5m$
 %the plots.[XXX not done yet but will be done]
 Our measurements are made with a FieldFox in VNA mode. In this mode, a pulse
 is generated in the FieldFox and sent through a $75ft$ $50\Omega$ cable that
-connects to the feed with a 4:1 passive balun. The return loss as a function of
-frequency, from 50 to $500MHz$, is saved.  Both the amplitude of the relative
-power and phase information are saved.  The frequency and delay resolution of
-the measurements is $\Delta\nu = 0.44 Mhz$ and $\Delta{t}=2.22ns$, respectively.
+connects to the feed with a 4:1 passive balun. The magnitude and phase of the complex return loss is measured between 50 to $500MHz$ over 1024 frequency channels which gives frequency resolution of 0.44MHz. Delay resolution of the measurements is $\Delta{t}=2.22ns$.
 In addition, we note that the round trip of a reflection from feed to the dish
 is $9m$, which corresponds to a delay of $30ns$.
 
@@ -216,33 +208,29 @@ is $9m$, which corresponds to a delay of $30ns$.
 %need to add in third : Antenna feed focal length 4.5 m which corresponds to a
 %signal propagation delay of 0.3 ns. Hence, subsequent reflections from the dish
 %vertex are expected to be at a delay which is integral multiple of 0.3 nS.
+\begin{figure}[ht!]
+\centering
+\includegraphics[totalheight=0.4\textheight]{plots/frequency_amp_phase_fullbw.png}
+\caption{Amplitude and phase of the measured return loss. Colored dashed lines
+mark three different frequency bands: $140-160MHz$, $100-200MHz$, and
+$50-250MHz$.}
+\label{fig:freq}
+\end{figure}
 
-In order to make our delay domain return loss measurements, we Fourier transform
-the frequency domain data we inherently measure with the VNA. However, since  we
-are Fourier transforming a finite data series, and therefore a series multiplied
-by a square window function, we are actually convolving the Fourier transform of
-our measurements with a $sinc$ function. This results in excess power at high
-delays due to the sidelobes of the $sinc$ function. To minimize the sidelobes we
- must use an appropriate window function before taking the Fourier transform.
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[totalheight=0.4\textheight]{plots/bh_vs_sq.png}
+\caption{Delay plot, produced for the PAPER bandwidth ($100MHz-200MHz$) by taking the Fourier transform of the measured return loss using four different window functions: Blackman-Harris, Hamming, Hanning, and square. }
+\label{fig:window}
+\end{figure}
+
+The return loss in the delay domain is computed by taking the Fourier transform
+of the frequency domain data. Since the measured data is band limited between 50 to 500~MHz which is analogous to multiply the measured data by a square window function, in delay domain, the response is convolved with a $sinc$ function. This may result in excess power at high
+delays due to the sidelobes of the $sinc$ function. Hence, appropriate windowing of the measured data set is necessary before taking the Fourier transform.
 We have chosen a Hamming window for our analysis. The effectiveness of this
 window function compared to others is illustrated in Figure
 \ref{fig:window}. 
-
-\begin{figure}
-\centering
-\includegraphics[trim={2cm 20cm 30cm 15cm},clip, totalheight=0.3\textheight]{plots/heradish.jpg}
-\caption{HERA dish and feed at the Green Bank NRAO site.}
-\label{fig:heradish}
-\end{figure}
-
-
-
-\begin{figure}
-\centering
-\includegraphics[totalheight=0.4\textheight]{plots/bh_vs_sq.png}
-\caption{Delay plot produced for the PAPER bandwidth ($100MHz-200MHz$) using four different window functions: Blackman-Harris, Hamming, Hanning, and square.}
-\label{fig:window}
-\end{figure}
 
 As mentioned in Section \ref{sec:theory}, there is a mis-match in amplitude
 between the reflections that we measure (originating from the FieldFox pulse)
@@ -256,7 +244,6 @@ increased to represent the original sky signal, but we do not apply this
 correction because it is not relevant to our analysis.
 
 \section{Results}
-
 Figure \ref{fig:freq} shows the return loss for a frequency bandwidth of $50$ to
 $500MHz$. This measurement was taken with the feed suspended at $13.96ft$, which
 was our closest measurement to the actual focal height.  Because the return
@@ -270,38 +257,36 @@ chosen bandwidths: the HERA bandwidth, the PAPER bandwidth, and a typical power
 spectra bandwidth when using a Hamming window function. A fourth measurement is also plotted using the PAPER bandwidth. This measurement was taken a year ago using a prototype HERA dish in Berkeley, and one of the main differences was that the feed was not encompassed in a cage. From the plot, it is again
 shown that the reflections are minimized for the PAPER bandwidth. It appears that the cage surrounding the feed increases the level of reflections.
 
-\begin{figure}
+\begin{figure}[ht!]
 \centering
 \includegraphics[totalheight=0.4\textheight]{plots/delay3_window.png}
 \caption{Delay plots produced using a Hamming window function for 5 different cases. Three of the cases correspond to measurements taken in Green Bank for three frequency bandwidths: $50MHz-250MHz$ (HERA bandwidth), $100MHz-200MHz$ (PAPER bandwidth), $140MHz-160MHz$ (typical power spectrum bandwidth). Two of the cases correspond to measurements taken in 2014 of the first prototype HERA dish in Berkeley. Of these, we plot data for two frequency bandwidths: $100MHz-200MHz$ (PAPER bandwidth), and $50MHz-1000MHz$ (full bandwidth used by the VNA). For the PAPER bandwidth data, we follow the same analyses as the others, while the full bandwidth data is produced directly by the VNA. The black dashed lines illustrate our ``60 by 60" specification.}
 \label{fig:3bands}
 \end{figure}
 
-Figure \ref{fig:elevator} is again a delay plot of the return loss, but for
-four different feed suspension heights. We use the PAPER bandwidth and note
-that the measurements are near identical at low delays, implying that low delay
-reflections are caused primarily by reflections within the feed cage. However,
-at higher delays we notice discrepancies between the different heights.
-
-\begin{figure}
+\begin{figure}[ht!]
 \centering
 \includegraphics[totalheight=0.4\textheight]{plots/delay_heights_paper.png}
 \caption{Delay plots produced using a Hamming window function for 4 different feed heights and the PAPER bandwidth ($100MHz-200MHz$). The black dashed lines illustrate our ``60 by 60" specification.}
 \label{fig:elevator}
 \end{figure}
 
-Finally, Figure \ref{fig:outofthedish} presents measurements taken of the feed
-away from the dish. Echosorb is placed under the feed for some of the
-measurements, with the expectation that it will prevent any reflections off the
-ground. Measurements are also taken of the feed inside its metal cage in
-various configurations. It is shown that the feed performs best without the cage and with the absorber. 
-
-\begin{figure}
+\begin{figure}[H]
 \centering
 \includegraphics[totalheight=0.4\textheight]{plots/delay_feed.png}
 \caption{Delay plots produced using a Hamming window function for different lone feed configurations and the PAPER bandwidth ($100MHz-200MHz$). The black dashed lines illustrate our ``60 by 60" specification.}
 \label{fig:outofthedish}
 \end{figure}
+Figure \ref{fig:elevator} is again a delay plot of the return loss, but for
+four different feed suspension heights. We use the PAPER bandwidth and note
+that the measurements are near identical at low delays, implying that low delay
+reflections are caused primarily by reflections within the feed cage. However,
+at higher delays we notice discrepancies between the different heights.
+Finally, Figure \ref{fig:outofthedish} presents measurements taken of the feed
+away from the dish. Echosorb is placed under the feed for some of the
+measurements, with the expectation that it will prevent any reflections off the
+ground. Measurements are also taken of the feed inside its metal cage in
+various configurations. It is shown that the feed performs best without the cage and with the absorber. 
 
 
 \section{Conclusion}
