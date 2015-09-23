@@ -267,16 +267,16 @@ Although this may appear to be a relevant performance metric
 for PAPER-style power spectrum analysis, such an analysis typically pre-filters out low-delay emission using wide bandwidths precisely to avoid
 sidelobes from low-delay emission.  Hence, the most relevant delay-spectrum performance profile is that taken using the $100-200MHz$ band.
 
-In the $100-200MHz$ delay profile, we see a delay response of $-50dB$ at $60ns$, which slopes down to $-60dB$ at $\sim120ns$.  Insofar as
-this does not achieve $-60dB$ attenuation at $60ns$, this indicates that the HERA system under test does not meet specification. However, we can learn additional information by evaluating
-different feed components. 
-
-\begin{figure}[ht!]
+\begin{figure}[H]
 \centering
 \includegraphics[totalheight=0.4\textheight]{plots/delay3_window.png}
 \caption{Delay plots produced using a Hamming window function for 5 different cases. Three of the cases correspond to measurements taken in Green Bank for three frequency bandwidths: $50MHz-250MHz$ (HERA bandwidth), $100MHz-200MHz$ (PAPER bandwidth), $140MHz-160MHz$ (typical power spectrum bandwidth). Two of the cases correspond to measurements taken in 2014 of the first prototype HERA dish in Berkeley (without a feed cage). Of these, we plot data for two frequency bandwidths: $100MHz-200MHz$ (PAPER bandwidth), and $50MHz-1000MHz$ (full bandwidth used by the VNA). For the PAPER bandwidth data, we follow the same Fourier-transform analysis as the others, while the full bandwidth data is produced directly by the VNA. The black dashed lines illustrate our ``60 by 60" specification.}
 \label{fig:3bands}
-\end{figure}
+\end{figure} 
+
+In the $100-200MHz$ delay profile, we see a delay response of $-50dB$ at $60ns$, which slopes down to $-60dB$ at $\sim120ns$.  Insofar as
+this does not achieve $-60dB$ attenuation at $60ns$, this indicates that the HERA system under test does not meet specification. However, we can learn additional information by evaluating
+different feed components. 
 
 \begin{figure}[ht!]
 \centering
