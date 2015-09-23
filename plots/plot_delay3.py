@@ -45,7 +45,7 @@ def take_delay(db, ph, fq, window='blackman-harris'):
     return n.fft.fftshift(_dw), n.fft.fftshift(_d), n.fft.fftshift(tau)
 
 
-colors = n.array([(31,119,180), (255,127,14), (44,160,44), (214,39,40), (127,127,127), (148,103,189)])/255.
+colors = n.array([(31,119,180), (255,127,14), (44,160,44), (214,39,40), (148,103,189)])/255.
 
 #file_base = sys.argv[1]
 file_base = '../alldata/NC41_12'
@@ -62,8 +62,8 @@ valids = {
           '50 - 250 MHz'  : n.where(n.logical_and(fq>.05 ,fq<.25)), 
           '100 - 200 MHz' : n.where(n.logical_and(fq>.1 ,fq<.2)), 
           '140 - 160 MHz' : n.where(n.logical_and(fq>.140 ,fq<.160)),
-          'no cage, device fft' : None,
-          '100 - 200 MHz (no cage)' : n.where(n.logical_and(dfreq>.1, dfreq<.2))
+          'no cage: 50 - 1000 MHz' : None,
+          'no cage: 100 - 200 MHz' : n.where(n.logical_and(dfreq>.1, dfreq<.2))
           #'100 - 200 MHz (no cage)' : n.ones(len(dfreq), dtype=n.bool)#n.where(n.logical_and(dfreq>.1, dfreq<.2))
 #          'second' : n.where(n.logical_and(fq>.250 ,fq<.500))
          }
@@ -82,17 +82,24 @@ valids = {
 #    axes[i].set_ylabel('return loss (dB)')
 #    axes[i].grid(1)
 #    axes[i].legend() 
+plots = []
+names = []
 for i,v in enumerate(valids.keys()):
-    print v
-    if v == 'no cage, device fft':
-        p.plot(dns, ddb, linewidth=2, label='%s'%v, color=colors[i])
-        print dns,ddb
-    elif v == '100 - 200 MHz (no cage)':
+    
+    if v == 'no cage: 50 - 1000 MHz':
+        plots.append(p.plot(dns, ddb, linewidth=2, label='%s'%v, color=colors[i]))
+        names.append(v)
+        #print dns,ddb
+    elif v == 'no cage: 100 - 200 MHz':
         dw, d, tau = take_delay(dfreqdb[valids[v]], dphs[valids[v]], dfreq[valids[v]], window='hamming')
-        p.plot(tau, 10*n.log10(n.abs(dw)**2), linewidth=2, label='%s'%v, color=colors[i])
+        plots.append(p.plot(tau, 10*n.log10(n.abs(dw)**2), linewidth=2, label='%s'%v, color=colors[i]))
+        names.append(v)
     else:
         dw, d, tau = take_delay(amps[valids[v]], phs[valids[v]], fq[valids[v]], window='hamming')
-        p.plot(tau, 10*n.log10(n.abs(dw)**2), linewidth=2, label='%s'%v, color=colors[i])
+        plots.append(p.plot(tau, 10*n.log10(n.abs(dw)**2), linewidth=2, label='%s'%v, color=colors[i]))
+        names.append(v)
+plots = n.array(plots)
+names = n.array(names)
 p.xlim(-30,350) 
 p.ylim(-100, 1)
 p.vlines(60, -100,100, linestyle='--', linewidth=2)
@@ -100,6 +107,14 @@ p.hlines(-60,-100 ,500, linestyle='--', linewidth=2)
 p.xlabel('delay (ns)')
 p.ylabel('return loss (dB)')
 p.grid(1)
-p.legend() 
+plots = plots[[2,1,3,0,4]]
+print names
+names = names[[2,1,3,0,4]]
+print names
+names = [i for i in names]
+plots = [i[0] for i in plots]
+print names, plots
+#p.legend()
+p.legend(plots, names) 
 
 p.show()
