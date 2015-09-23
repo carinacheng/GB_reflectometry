@@ -225,8 +225,7 @@ $50-250MHz$.}
 \label{fig:window}
 \end{figure}
 
-The return loss in the delay domain is computed by taking the Fourier transform
-of the frequency domain data. Since the measured data is band limited between 50 to 500~MHz which is analogous to multiply the measured data by a square window function, in delay domain, the response is convolved with a $sinc$ function. This may result in excess power at high
+Frequency domain data, as shown in Figure \ref{fig:freq}, can be Fourier-transformed to compute the return loss in the delay domain. Since the measured data is band limited between 50 to 500~MHz which is analogous to multiply the measured data by a square window function, in delay domain, the response is convolved with a $sinc$ function. This may result in excess power at high
 delays due to the sidelobes of the $sinc$ function. Hence, appropriate windowing of the measured data set is necessary before taking the Fourier transform.
 We have chosen a Hamming window for our analysis. The effectiveness of this
 window function compared to others is illustrated in Figure
