@@ -32,10 +32,17 @@ signal at the feed. This specification was approximated based on the
 power level of the cosmological signal in relation to foreground signals, which is estimated to be six orders of magnitude fainter. Additionally, the $14m$ HERA baselines set a foreground containing horizon-limit that, with some buffer, sets a delay specification of $60ns$. 
 
 We carry out reflectometry measurements at the HERA element prototype in Green
-Bank, WV in order to understand the nature of feed reflections in the dish
+Bank, WV (Figure \ref{fig:heradish}) in order to understand the nature of feed reflections in the dish
 and characterize its performance. As HERA progresses as an experiment, it is
 necessary to build optimal dishes that aim to minimize the challenges of
 chromaticity in our quest for the Epoch of Reionization.
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[trim={2cm 20cm 30cm 15cm},clip, totalheight=0.3\textheight]{plots/heradish.jpg}
+\caption{HERA dish and feed at the Green Bank NRAO site.}
+\label{fig:heradish}
+\end{figure}
 
 \section{Theory}{\label{sec:theory}}
 \begin{figure}[ht!]
@@ -48,13 +55,14 @@ the reflections measured contain most of the original pulse signal (solid red),
 so it is crucial to adjust for this difference in our analysis.}
 \label{fig:cartoon}
 \end{figure}
+
 Plane waves incident on a parabolic dish
 are focussed at the feed with focal height $l$. For a well-designed feed, one
 that closely matches the impedance of free space\footnote{The impedance of free space
 is $Z_{0} = \mu_{0}c_{0} = \frac{1}{\epsilon_{0}c_{0}} \approx 377\Omega $.},
 most of the signal will enter the system while only
 a small percentage will be reflected back towards the dish for a secondary
-reflection into the feed (blue arrows in Figure \ref{fig:cartoon}). In the
+reflection into the feed (dashed blue arrows in Figure \ref{fig:cartoon}). In the
 following discussion, we consider a reflection off the feed and the
 subsequent reflection off the dish as one reflection.
 
@@ -67,8 +75,9 @@ $n^{th}$ reflection off the feed and the dish is:
 P_{in} =  P_{sky}(1-\Gamma_{f})[1+ \Gamma_{f}\Gamma_{d} e^{i\phi}+ (\Gamma_{f}\Gamma_{d})^2e^{i2\phi}+ ....+ (\Gamma_{f}\Gamma_{d})^{n}e^{in\phi}]
 \end{equation}
 
-where, $\phi = 2l({2\pi \over c})f$ is the propagation delay of a lightwave of frequency $f$ due to a reflection over a focal distance $l$. Notable here is, upon first incidence, the sky signal is focussed onto the feed from the entire dish and the dish reflection coefficient $\Gamma_{d}$ is $1$ for the first incidence. Back and forth reflection of the signal in between the feed and the dish, however, occurs from only a part of the dish which is shadowed by the feed. Therefore, in this case, $\Gamma_{d} < 1$.
-Simplifying:
+where, $\phi = 2l({2\pi \over c})f$ is the propagation delay of a lightwave of frequency $f$ due to a reflection over a focal distance $l$. It is noted that upon the first incidence, the sky signal is focussed onto the feed from the entire dish and the dish reflection coefficient $\Gamma_{d}$ is $1$ for this first incidence. The subsequent back and forth reflection of the signal in between the feed and the dish, however, occurs from only the part of the dish which is shadowed by the feed. Therefore, in this case, $\Gamma_{d} < 1$.
+
+Simplifying Equation \ref{eqn:series1}:
 \begin{eqnarray}\label{eqn:ratio1}
 {P_{in} \over P_{sky} } & = & (1-\Gamma_{f})[1+ \Gamma_{f}\Gamma_{d} e^{i\phi}+ (\Gamma_{f}\Gamma_{d})^2e^{i2\phi}+ ....+ (\Gamma_{f}\Gamma_{d})^{n}e^{in\phi}] \nonumber\\
       & = & (1-\Gamma_{f}) \displaystyle\sum\limits_{n=0}^{n} [\Gamma_{f}\Gamma_{d}e^{i \phi}]^{n}\nonumber\\
@@ -99,21 +108,21 @@ characterize reflections.
 
 In our experimental set-up, instead of using sky signal, we employ
 our feed as a transmitter and transmit a pulse. If the initial pulse is a broadband signal,
-$P_{tr}$, sent to the feed antenna via a $75m$ long cable by a vector network
+$P_{tr}$, sent to the feed via a $75m$ cable by a vector network
 analyser (VNA), a delay domain measurement of the system is accomplished by
 taking the Fourier transform of the measured complex return loss of the feed. When the signal is incident on
 the feed, part of the incident power ($\Gamma_{f}$) is reflected back to the
 measuring device (dashed red arrows in Figure \ref{fig:cartoon}) and
 $(1-\Gamma_{f})$ is radiated by the feed (solid red arrows in Figure
-\ref{fig:cartoon}) which illuminates the dish. While most of the incident signal is reflected back into the space by the dish, the reflected signal from the dish vertex returns to
+\ref{fig:cartoon}) which illuminates the dish. While most of the incident signal is reflected back into space by the dish, the reflected signal from the dish vertex returns to
 the feed. This incident signal is now
 reflected back and forth in between the feed and the dish much like the sky
 signal reflection discussed previously.  Hence, if $P_{r}$ is the power
-incident back on the feed for the first time then the reflected power $P_{ref}$
+incident back on the feed for the first time then the reflected power $P_{refl}$
 back into the VNA would be:
 
 \begin{equation}\label{eqn:series2}
-P_{ref} =  P_{r}(1-\Gamma_{f})[1+ \Gamma_{f}\Gamma_{d} e^{i\phi}+ (\Gamma_{f}\Gamma_{d})^2e^{i2\phi}+ ....+ (\Gamma_{f}\Gamma_{d})^{n}e^{in\phi}]
+P_{refl} =  P_{r}(1-\Gamma_{f})[1+ \Gamma_{f}\Gamma_{d} e^{i\phi}+ (\Gamma_{f}\Gamma_{d})^2e^{i2\phi}+ ....+ (\Gamma_{f}\Gamma_{d})^{n}e^{in\phi}]
 \end{equation}
  
 Once again, note that we consider one reflection from the feed and its subsequent reflection from the dish as one reflection in total. Equation \ref{eqn:series2} is similar to Equation \ref{eqn:series1}, with different incident powers.
@@ -124,7 +133,7 @@ Recall that $P_{r}$ is the initial power that is incident back on the feed, whic
 P_{r}= \Gamma_{d}(1-\Gamma_f)e^{i\phi} P_{tr}
 \end{equation}
 
-Also note that the first reflection of the signal sent by the VNA occurs at the antenna end. Hence the total returned power $P_{ret}$, to the VNA  would be:
+Also note that the first reflection of the signal sent by the VNA occurs at the feed end. Hence the total returned power $P_{ret}$, to the VNA  would be:
 
 \begin{eqnarray}
 P_{ret} & = & \Gamma_{f}P_{tr} \nonumber\\ 
@@ -154,7 +163,7 @@ measurements to real observations.
 
 The VNA measures the magnitude and phase of the quantity ${P_{ret}\over P_{tr}}$
 as a function of frequency as shown in Figure \ref{fig:freq}. In our measurement
-set-up, the first reflection occurs at the antenna terminal $\Gamma_{f}$, so
+set-up, the first reflection occurs at the feed $\Gamma_{f}$, so
 $({P_{ret} \over P_{tr} }  - \Gamma_{f}) $ gives an estimate of the delay
 spectrum of the sky signal. In delay domain, the relative signal strength at
 zero delay represents the factor $\Gamma_{f}$ while the signal strength at any
@@ -163,8 +172,7 @@ reflected from the feed surroundings.
 
 \section{Methodology}{\label{sec:methods}}
 
-Our reflectometry measurements are made using a prototype HERA dish (Figure
-\ref{fig:heradish}) at NRAO in Green Bank, WV. The dish is a $14\,m$ diameter
+Our reflectometry measurements are made using a prototype HERA dish at NRAO in Green Bank, WV. The dish is a $14\,m$ diameter
 parabolic reflector structurally supported with 3 telephone poles. The
 reflective material is made up of wire mesh that is attached to PVC
 pipes, forming the parabolic shape of the dish. With the current iteration of
@@ -173,13 +181,6 @@ encompassing the backplane. The PAPER feed and the backplane (which is aimed at
 preventing feed-to-feed interaction between neighboring dishes) is raised and
 lowered by a three-pulley system. The focal height of the dish is $4.5m$
 ($\sim{14.76}$ft).  
-
-\begin{figure}[ht!]
-\centering
-\includegraphics[trim={2cm 20cm 30cm 15cm},clip, totalheight=0.3\textheight]{plots/heradish.jpg}
-\caption{HERA dish and feed at the Green Bank NRAO site.}
-\label{fig:heradish}
-\end{figure}
 
 %The heights measured in our experiment were made from
 %the balun to the top of the concrete hub. However, the focal height should be
