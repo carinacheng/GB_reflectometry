@@ -3,48 +3,47 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Memo.aux
 The style file: apj.bst
 Database file #1: biblio.bib
-Warning--I didn't find a database entry for "deboer_parsons_memo"
-Warning--I didn't find a database entry for "parsons_et_al_2012b"
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 11 entries,
+Warning--empty journal in parsons_deboer_memo
+You've used 13 entries,
             3085 wiz_defined-function locations,
-            721 strings with 8267 characters,
-and the built_in function-call counts, 6226 in all, are:
-= -- 456
-> -- 574
-< -- 0
-+ -- 191
-- -- 207
-* -- 601
-:= -- 1205
-add.period$ -- 11
-call.type$ -- 11
-change.case$ -- 73
-chr.to.int$ -- 10
-cite$ -- 11
-duplicate$ -- 209
-empty$ -- 317
-format.name$ -- 216
-if$ -- 1202
+            730 strings with 8595 characters,
+and the built_in function-call counts, 7170 in all, are:
+= -- 537
+> -- 644
+< -- 1
++ -- 215
+- -- 233
+* -- 679
+:= -- 1384
+add.period$ -- 13
+call.type$ -- 13
+change.case$ -- 89
+chr.to.int$ -- 12
+cite$ -- 14
+duplicate$ -- 247
+empty$ -- 370
+format.name$ -- 246
+if$ -- 1385
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 11
-newline$ -- 37
-num.names$ -- 44
-pop$ -- 79
+missing$ -- 13
+newline$ -- 43
+num.names$ -- 52
+pop$ -- 99
 preamble$ -- 1
-purify$ -- 73
+purify$ -- 89
 quote$ -- 0
-skip$ -- 176
+skip$ -- 204
 stack$ -- 0
-substring$ -- 255
+substring$ -- 287
 swap$ -- 2
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 99
-warning$ -- 0
-while$ -- 40
+type$ -- 117
+warning$ -- 1
+while$ -- 47
 width$ -- 0
-write$ -- 113
-(There were 2 warnings)
+write$ -- 131
+(There was 1 warning)
