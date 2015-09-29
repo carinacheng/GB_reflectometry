@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99d (TeX Live 2014)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: Memo.aux
+The style file: apj.bst
+Database file #1: biblio.bib
+Warning--I didn't find a database entry for "deboer_parsons_memo"
+Warning--I didn't find a database entry for "parsons_et_al_2012b"
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+You've used 11 entries,
+            3085 wiz_defined-function locations,
+            721 strings with 8267 characters,
+and the built_in function-call counts, 6226 in all, are:
+= -- 456
+> -- 574
+< -- 0
++ -- 191
+- -- 207
+* -- 601
+:= -- 1205
+add.period$ -- 11
+call.type$ -- 11
+change.case$ -- 73
+chr.to.int$ -- 10
+cite$ -- 11
+duplicate$ -- 209
+empty$ -- 317
+format.name$ -- 216
+if$ -- 1202
+int.to.chr$ -- 2
+int.to.str$ -- 0
+missing$ -- 11
+newline$ -- 37
+num.names$ -- 44
+pop$ -- 79
+preamble$ -- 1
+purify$ -- 73
+quote$ -- 0
+skip$ -- 176
+stack$ -- 0
+substring$ -- 255
+swap$ -- 2
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 99
+warning$ -- 0
+while$ -- 40
+width$ -- 0
+write$ -- 113
+(There were 2 warnings)
