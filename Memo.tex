@@ -4,7 +4,7 @@
 %\usepackage{titlesec} %used to format titles
 \usepackage{graphicx} %for handling figures
 %\usepackage[none]{hyphenat} %disallows hyphenated words
-
+\citestyle{aa}
 
 \begin{document}
 
@@ -39,12 +39,15 @@ in the visibilities of interferometric data.
 
 %put equation variables in cartoon
 
-To first order, the design specification of HERA elements requires that any delayed signal, arriving at the feed after a multipath propagation, should be at the level of $-60dB$ at a delay of $60ns$ relative to the first
-incident signal at the feed. We carry out reflectometry measurements at the HERA antenna prototype in Green Bank, WV. Understanding the nature of antenna reflections in the HERA dish is of the
-utmost importance in characterizing the performance of the dish. As HERA
-progresses as an experiment, it is necessary to build optimal dishes that aim
-to minimize the challenges of chromaticity in our quest for the Epoch of
-Reionization.
+To first order, the design specification of HERA elements requires that any
+delayed signal, arriving at the feed after a multipath propagation, should be
+at the level of $-60dB$ at a delay of $60ns$ relative to the first incident
+signal at the feed. We carry out reflectometry measurements at the HERA antenna
+prototype in Green Bank, WV. Understanding the nature of antenna reflections in
+the HERA dish is of the utmost importance in characterizing the performance of
+the dish. As HERA progresses as an experiment, it is necessary to build optimal
+dishes that aim to minimize the challenges of chromaticity in our quest for the
+Epoch of Reionization.
 
 \section{Theory}{\label{sec:theory}}
 \begin{figure}[ht!]
@@ -340,8 +343,8 @@ HERA of $-60dB$ attenuation at $60ns$, we recommend reinvestigating this specifi
 the element's current delay performance on HERA science.  We suspect that, at the level of $-50dB$ at $60ns$ and $-60dB$ at $120ns$, this
 performance may indeed be adequate for the delay-domain power spectrum analysis for which HERA has been optimized.
 
-\section{References}
-
+\bibliographystyle{apj}
+\bibliography{biblio}
 
 
 \end{document}
