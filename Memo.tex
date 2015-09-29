@@ -250,7 +250,7 @@ correction because it is not relevant to our analysis.
 \section{Results}
 
 Figure \ref{fig:freq} shows the return loss for a frequency bandwidth of $50$ to
-$500MHz$. This measurement was taken with the feed suspended at $13.96ft$, which
+$500MHz$. This measurement was taken with the feed suspended at $4.26m$, which
 was our closest measurement to the actual focal height.  Because the return
 loss is the ratio of the power received to the power transmitted, higher
 reflections can clearly be seen outside of the PAPER bandwidth. This is not
@@ -327,12 +327,12 @@ with the height of the feed above the dish, making reflections off the dish the 
 The delay-domain performance of the HERA dish is central to HERA's function as a power spectrum instrument.
 As we have seen, reflectometry measurements can help characterize HERA's performance in this domain, and
 as Equation \ref{eqn:ratio1} shows, these measurements must be adjusted for a difference in transmission/reflection
-at the first feed encounter in order to be interpreted as the delay response of an antenna relative to an incident
+at the first feed encounter in order to be interpreted as the delay response of a feed relative to an incident
 plane wave from the sky.  We also see that the choice of windowing function is critical for accurately measuring the
 antenna delay response at higher delays, where sidelobes from much higher amplitude responses at small delays can easily
-dominate.  We find Hamming, Hanning, and Blackman-Harris windows to be generally adequate, but square windowing functions are not.
+dominate.  We find Hamming, Hanning, and Blackman-Harris windows to be generally adequate while square windowing functions are not.
 Given the critical nature of the windowing function, we recommend that all reflectometry measurements be performed in the
-frequency domain, so that the data analyst can manually implement the final Fourier transform with the appropriate window.
+frequency domain, so that the data analyst can manually implement the Fourier transform with the appropriate window.
 
 Taken all together, we summarize that the first version of the HERA dish, with a PAPER-style feed and cylindrical cage, is close to meeting
 specification, but will require additional work to fall below $-60dB$ at $60ns$.  Given that the width of the delay response is a convolution
