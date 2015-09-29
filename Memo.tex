@@ -26,13 +26,6 @@ dish.  Such reflections generate multiple reduced strength copies of the
 incident sky signal at various delays, and this produces spurious correlations
 in the visibilities of interferometric data. 
 
-%THROUGHOUT MEMO:
-%pick 'antenna' or 'feed' and don't use interchangeably; can use 'element' though
-%use gamma_f instead of gamma_a
-%add references
-
-%put equation variables in cartoon
-
 To first order, the design specification of HERA elements requires that any delayed signal, arriving at the feed after a multipath propagation, should be at the level of $-60dB$ at a delay of $60ns$ relative to the first
 incident signal at the feed. This specification was approximated based on the estimated power level of the cosmological signal in relation to foreground signals, as well as the $14m$ baselines of HERA dishes.
 
@@ -63,20 +56,20 @@ following discussion, we consider a reflection off the feed and the
 subsequent reflection off the dish as one reflection.
 
 Quantitatively, if the incident power from the sky signal is $P_{sky}$, the feed
-reflection coefficient is $\Gamma_{a}$, and the dish reflection
+reflection coefficient is $\Gamma_{f}$, and the dish reflection
 coefficient is $\Gamma_{d}$, then the net power entering the feed after an
 $n^{th}$ reflection off the feed and the dish is:
 
 \begin{equation}\label{eqn:series1}
-P_{in} =  P_{sky}(1-\Gamma_{a})[1+ \Gamma_{a}\Gamma_{d} e^{i\phi}+ (\Gamma_{a}\Gamma_{d})^2e^{i2\phi}+ ....+ (\Gamma_{a}\Gamma_{d})^{n}e^{in\phi}]
+P_{in} =  P_{sky}(1-\Gamma_{f})[1+ \Gamma_{f}\Gamma_{d} e^{i\phi}+ (\Gamma_{f}\Gamma_{d})^2e^{i2\phi}+ ....+ (\Gamma_{f}\Gamma_{d})^{n}e^{in\phi}]
 \end{equation}
 
 where, $\phi = 2l({2\pi \over c})f$ is the propagation delay of a lightwave of frequency $f$ due to a reflection over a focal distance $l$. Notable here is, upon first incidence, the sky signal is focussed onto the feed from the entire dish and the dish reflection coefficient $\Gamma_{d}$ is $1$ for the first incidence. Back and forth reflection of the signal in between the feed and the dish, however, occurs from only a part of the dish which is shadowed by the feed. Therefore, in this case, $\Gamma_{d} < 1$.
 Simplifying:
 \begin{eqnarray}\label{eqn:ratio1}
-{P_{in} \over P_{sky} } & = & (1-\Gamma_{a})[1+ \Gamma_{a}\Gamma_{d} e^{i\phi}+ (\Gamma_{a}\Gamma_{d})^2e^{i2\phi}+ ....+ (\Gamma_{a}\Gamma_{d})^{n}e^{in\phi}] \nonumber\\
-      & = & (1-\Gamma_{a}) \displaystyle\sum\limits_{n=0}^{n} [\Gamma_{a}\Gamma_{d}e^{i \phi}]^{n}\nonumber\\
-      & = & (1-\Gamma_{a})+(1-\Gamma_{a}) \displaystyle\sum\limits_{n=1}^{n} [\Gamma_{a}\Gamma_{d}e^{i \phi}]^{n}
+{P_{in} \over P_{sky} } & = & (1-\Gamma_{f})[1+ \Gamma_{f}\Gamma_{d} e^{i\phi}+ (\Gamma_{f}\Gamma_{d})^2e^{i2\phi}+ ....+ (\Gamma_{f}\Gamma_{d})^{n}e^{in\phi}] \nonumber\\
+      & = & (1-\Gamma_{f}) \displaystyle\sum\limits_{n=0}^{n} [\Gamma_{f}\Gamma_{d}e^{i \phi}]^{n}\nonumber\\
+      & = & (1-\Gamma_{f})+(1-\Gamma_{f}) \displaystyle\sum\limits_{n=1}^{n} [\Gamma_{f}\Gamma_{d}e^{i \phi}]^{n}
 \end{eqnarray}
 
 The ratio in Equation \ref{eqn:ratio1} quantifies the amount of power received
@@ -106,9 +99,9 @@ our feed as a transmitter and transmit a pulse. If the initial pulse is a broadb
 $P_{tr}$, sent to the feed antenna via a $75m$ long cable by a vector network
 analyser (VNA), a delay domain measurement of the system is accomplished by
 taking the Fourier transform of the measured complex return loss of the feed. When the signal is incident on
-the feed, part of the incident power ($\Gamma_{a}$) is reflected back to the
+the feed, part of the incident power ($\Gamma_{f}$) is reflected back to the
 measuring device (dashed red arrows in Figure \ref{fig:cartoon}) and
-$(1-\Gamma_{a})$ is radiated by the feed (solid red arrows in Figure
+$(1-\Gamma_{f})$ is radiated by the feed (solid red arrows in Figure
 \ref{fig:cartoon}) which illuminates the dish. While most of the incident signal is reflected back into the space by the dish, the reflected signal from the dish vertex returns to
 the feed. This incident signal is now
 reflected back and forth in between the feed and the dish much like the sky
@@ -117,7 +110,7 @@ incident back on the feed for the first time then the reflected power $P_{ref}$
 back into the VNA would be:
 
 \begin{equation}\label{eqn:series2}
-P_{ref} =  P_{r}(1-\Gamma_{a})[1+ \Gamma_{a}\Gamma_{d} e^{i\phi}+ (\Gamma_{a}\Gamma_{d})^2e^{i2\phi}+ ....+ (\Gamma_{a}\Gamma_{d})^{n}e^{in\phi}]
+P_{ref} =  P_{r}(1-\Gamma_{f})[1+ \Gamma_{f}\Gamma_{d} e^{i\phi}+ (\Gamma_{f}\Gamma_{d})^2e^{i2\phi}+ ....+ (\Gamma_{f}\Gamma_{d})^{n}e^{in\phi}]
 \end{equation}
  
 Once again, note that we consider one reflection from the feed and its subsequent reflection from the dish as one reflection in total. Equation \ref{eqn:series2} is similar to Equation \ref{eqn:series1}, with different incident powers.
@@ -125,22 +118,22 @@ Once again, note that we consider one reflection from the feed and its subsequen
 Recall that $P_{r}$ is the initial power that is incident back on the feed, which is just the feed radiated power reflected off the dish:
  
 \begin{equation}
-P_{r}= \Gamma_{d}(1-\Gamma_a)e^{i\phi} P_{tr}
+P_{r}= \Gamma_{d}(1-\Gamma_f)e^{i\phi} P_{tr}
 \end{equation}
 
 Also note that the first reflection of the signal sent by the VNA occurs at the antenna end. Hence the total returned power $P_{ret}$, to the VNA  would be:
 
 \begin{eqnarray}
-P_{ret} & = & \Gamma_{a}P_{tr} \nonumber\\ 
- & + &   \Gamma_{d}(1-\Gamma_a)e^{i\phi} P_{tr}(1-\Gamma_{a}) [1+ \Gamma_{a}\Gamma_{d} e^{i\phi}+  ....+ (\Gamma_{a}\Gamma_{d})^{n}e^{in\phi}]\nonumber\\
+P_{ret} & = & \Gamma_{f}P_{tr} \nonumber\\ 
+ & + &   \Gamma_{d}(1-\Gamma_f)e^{i\phi} P_{tr}(1-\Gamma_{f}) [1+ \Gamma_{f}\Gamma_{d} e^{i\phi}+  ....+ (\Gamma_{f}\Gamma_{d})^{n}e^{in\phi}]\nonumber\\
  \end{eqnarray}
  
 Simplifying:
  
   \begin{eqnarray}\label{eqn:ratio2}
- {P_{ret} \over P_{tr} } & = & \Gamma_{a}
-  +  \Gamma_{d}(1-\Gamma_a)^{2} [e^{i\phi}+ \Gamma_{a}\Gamma_{d} e^{i2\phi}+  ....+ (\Gamma_{a}\Gamma_{d})^{n}e^{i n\phi}]\nonumber\\
-  & = & \Gamma_{a} + { (1-\Gamma_a)^{2}\over \Gamma_{a} } \displaystyle\sum\limits_{n=1}^{n} [\Gamma_{a}\Gamma_{d}e^{i\phi}]^{n}
+ {P_{ret} \over P_{tr} } & = & \Gamma_{f}
+  +  \Gamma_{d}(1-\Gamma_f)^{2} [e^{i\phi}+ \Gamma_{f}\Gamma_{d} e^{i2\phi}+  ....+ (\Gamma_{f}\Gamma_{d})^{n}e^{i n\phi}]\nonumber\\
+  & = & \Gamma_{f} + { (1-\Gamma_f)^{2}\over \Gamma_{f} } \displaystyle\sum\limits_{n=1}^{n} [\Gamma_{f}\Gamma_{d}e^{i\phi}]^{n}
    \nonumber\\
 \end{eqnarray}
 
@@ -148,7 +141,7 @@ The ratio in Equation \ref{eqn:ratio2} is the returned power to the VNA with
 respect to the transmitted power sent by the VNA. It is identical to the sky
 observation case in Equation \ref{eqn:ratio1} but differs by two factors. The
 first factor corresponds to an additive amplitude difference arising from
-$\Gamma_{a}$, which physically accounts for the initial reflection at the feed.
+$\Gamma_{f}$, which physically accounts for the initial reflection at the feed.
 The second difference is a multiplicative term which informs us about the first
 reflection. Both of these terms need to be corrected for in order to relate our
 measurements to real observations.
@@ -158,10 +151,10 @@ measurements to real observations.
 
 The VNA measures the magnitude and phase of the quantity ${P_{ret}\over P_{tr}}$
 as a function of frequency as shown in Figure \ref{fig:freq}. In our measurement
-set-up, the first reflection occurs at the antenna terminal $\Gamma_{a}$, so
-$({P_{ret} \over P_{tr} }  - \Gamma_{a}) $ gives an estimate of the delay
+set-up, the first reflection occurs at the antenna terminal $\Gamma_{f}$, so
+$({P_{ret} \over P_{tr} }  - \Gamma_{f}) $ gives an estimate of the delay
 spectrum of the sky signal. In delay domain, the relative signal strength at
-zero delay represents the factor $\Gamma_{a}$ while the signal strength at any
+zero delay represents the factor $\Gamma_{f}$ while the signal strength at any
 other delay represents any delayed signal that enters the feed after being
 reflected from the feed surroundings. 
 
@@ -230,7 +223,7 @@ between the reflections that we measure (originating from the FieldFox pulse)
 and reflections produced by sky signal. The reflections that we measure (at high
 delays) must be lowered by a factor to represent weaker reflections that would
 occur after most of the sky signal is received by the feed. For our
-compensation, we multiply our entire delay spectrum by its DC component, which is the feed reflection coefficient $\Gamma_{a}$, and also divide by ($1-\Gamma_{a}$). In other words, this correction factor equates Equation \ref{eqn:ratio2} with Equation \ref{eqn:ratio1}. 
+compensation, we multiply our entire delay spectrum by its DC component, which is the feed reflection coefficient $\Gamma_{f}$, and also divide by ($1-\Gamma_{f}$). In other words, this correction factor equates Equation \ref{eqn:ratio2} with Equation \ref{eqn:ratio1}. 
 We note that this correction is only accurate at high delays where our
 reflections of interest occur. At low delays, our spectrum amplitude should be
 increased to represent the original sky signal, but we do not apply this
