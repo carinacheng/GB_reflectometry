@@ -16,7 +16,7 @@
 
 There are several different sources of instrumental chromaticity for radio
 telescope systems that can result in non-ideal performances and unwanted
-systematic effects in measured data. One such non-ideality is the mismatch
+systematic effects in measured data. One such source is the mismatch
 between the impedance of free space and the antenna and transmission line,
 which results in a partial coupling of the sky signal into the antenna while
 the rest is reflected back into the space. For any reflector antenna, such as the HERA
@@ -26,12 +26,6 @@ dish.  Such reflections generate multiple reduced strength copies of the
 incident sky signal at various delays, and this produces spurious correlations
 in the visibilities of interferometric data. 
 
-%INTRO:
-%emphasize first order justification of the 60by60 spec
-	%justification: separation is 14m so get 60ns from that
-	%ratio of foreground amplitude and EoR signal gives you 60dB
-%minus 60 instead of 'reduced'
-
 %THROUGHOUT MEMO:
 %pick 'antenna' or 'feed' and don't use interchangeably; can use 'element' though
 %use gamma_f instead of gamma_a
@@ -39,15 +33,13 @@ in the visibilities of interferometric data.
 
 %put equation variables in cartoon
 
-To first order, the design specification of HERA elements requires that any
-delayed signal, arriving at the feed after a multipath propagation, should be
-at the level of $-60dB$ at a delay of $60ns$ relative to the first incident
-signal at the feed. We carry out reflectometry measurements at the HERA antenna
-prototype in Green Bank, WV. Understanding the nature of antenna reflections in
-the HERA dish is of the utmost importance in characterizing the performance of
-the dish. As HERA progresses as an experiment, it is necessary to build optimal
-dishes that aim to minimize the challenges of chromaticity in our quest for the
-Epoch of Reionization.
+To first order, the design specification of HERA elements requires that any delayed signal, arriving at the feed after a multipath propagation, should be at the level of $-60dB$ at a delay of $60ns$ relative to the first
+incident signal at the feed. This specification was approximated based on the estimated power level of the cosmological signal in relation to foreground signals, as well as the $14m$ baselines of HERA dishes.
+
+We carry out reflectometry measurements at the HERA antenna prototype in Green Bank, WV in order to understand the nature of antenna reflections in the dish and characterize its performance. As HERA
+progresses as an experiment, it is necessary to build optimal dishes that aim
+to minimize the challenges of chromaticity in our quest for the Epoch of
+Reionization.
 
 \section{Theory}{\label{sec:theory}}
 \begin{figure}[ht!]
