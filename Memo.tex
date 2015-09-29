@@ -114,7 +114,7 @@ characterize reflections.
 
 In our experimental set-up, instead of using sky signal, we employ
 our feed as a transmitter and transmit a pulse. If the initial pulse is a broadband signal,
-$P_{tr}$, sent to the feed via a $75m$ cable by a vector network
+$P_{tr}$, sent to the feed via a $75ft$ cable by a vector network
 analyser (VNA), a delay domain measurement of the system is accomplished by
 taking the Fourier transform of the measured complex return loss of the feed. When the signal is incident on
 the feed, part of the incident power ($\Gamma_{f}$) is reflected back to the
@@ -196,8 +196,8 @@ lowered by a three-pulley system. The focal height of the dish is $4.5m$
 %the plots.[XXX not done yet but will be done]
 Our measurements are made with a FieldFox in VNA mode. In this mode, a pulse
 is generated in the FieldFox and sent through a $75ft$ $50\Omega$ cable that
-connects to the feed with a 4:1 passive balun. The magnitude and phase of the complex return loss is measured between 50 to $500MHz$ over 1024 frequency channels which gives frequency resolution of 0.44MHz. Delay resolution of the measurements is $\Delta{t}=2.22ns$.
-In addition, we note that the round trip of a reflection from feed to the dish
+connects to the feed with a 4:1 passive balun. The magnitude and phase of the complex return loss is measured between 50 to $500MHz$ over 1024 frequency channels which gives a frequency resolution of 0.44MHz. The delay resolution of the measurements is $\Delta{t}=2.22ns$.
+In addition, we note that the round trip of a reflection from the feed to the dish
 is $9m$, which corresponds to a delay of $30ns$.
 
 
@@ -217,14 +217,14 @@ is $9m$, which corresponds to a delay of $30ns$.
 \centering
 \includegraphics[totalheight=0.4\textheight]{plots/frequency_amp_phase_fullbw.png}
 \caption{Amplitude and phase of the measured return loss. Colored dashed lines
-mark three different frequency bands: $140-160MHz$, $100-200MHz$, and
-$50-250MHz$.}
+mark three different frequency bands: $140-160MHz$ (typical power spectrum bandwidth), $100-200MHz$ (PAPER bandwidth), and
+$50-250MHz$ (HERA bandwidth).}
 \label{fig:freq}
 \end{figure}
 
-Frequency domain data, as shown in Figure \ref{fig:freq}, can be Fourier-transformed to compute the return loss in the delay domain. Since the measured data is band limited between 50 to 500~MHz which is analogous to multiply the measured data by a square window function, in delay domain, the response is convolved with a $sinc$ function. This may result in excess power at high
+Frequency domain data, as shown in Figure \ref{fig:freq}, can be Fourier-transformed to compute the return loss in the delay domain. Because the measured data is band-limited between $50$ to $500MHz$, it is analogous to multiply the measured data by a square window function. Then in delay domain, the response would be convolved with a $sinc$ function. This may result in excess power at high
 delays due to the sidelobes of the $sinc$ function. Hence, appropriate windowing of the measured data set is necessary before taking the Fourier transform.
-We have chosen a Hamming window for our analysis. The effectiveness of this
+We have chosen a Hamming window for our analysis, and its effectiveness of this
 window function compared to others is illustrated in Figure
 \ref{fig:window}. 
 
@@ -233,7 +233,7 @@ between the reflections that we measure (originating from the FieldFox pulse)
 and reflections produced by sky signal. The reflections that we measure (at high
 delays) must be lowered by a factor to represent weaker reflections that would
 occur after most of the sky signal is received by the feed. For our
-compensation, we multiply our entire delay spectrum by its DC component, which is the feed reflection coefficient $\Gamma_{f}$, and also divide by ($1-\Gamma_{f}$). In other words, this correction factor equates Equation \ref{eqn:ratio2} with Equation \ref{eqn:ratio1}. 
+compensation, we multiply our entire delay spectrum by its DC component, which is the feed reflection coefficient $\Gamma_{f}$, and also divide by ($1-\Gamma_{f}$). In other words, these correction factors equate Equation \ref{eqn:ratio2} with Equation \ref{eqn:ratio1}. 
 We note that this correction is only accurate at high delays where our
 reflections of interest occur. At low delays, our spectrum amplitude should be
 increased to represent the original sky signal, but we do not apply this
@@ -242,7 +242,7 @@ correction because it is not relevant to our analysis.
 \begin{figure}[H]
 \centering
 \includegraphics[totalheight=0.4\textheight]{plots/bh_vs_sq.png}
-\caption{Delay plot, produced for the PAPER bandwidth ($100MHz-200MHz$) by taking the Fourier transform of the measured return loss using four different window functions: Blackman-Harris, Hamming, Hanning, and square. }
+\caption{Delay plot produced for the PAPER bandwidth ($100MHz-200MHz$) by taking the Fourier transform of the measured return loss using four different window functions: Blackman-Harris, square, Hamming, and Hanning.}
 \label{fig:window}
 \end{figure}
 
