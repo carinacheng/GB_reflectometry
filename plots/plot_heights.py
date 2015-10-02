@@ -30,24 +30,20 @@ def take_delay(db, ph, fq, window='blackman-harris'):
 colors = n.array([(31,119,180), (255,127,14), (44,160,44), (214,39,40), (127,127,127), (148,103,189)])/255.
 
 #file_base = sys.argv[1]
-#file_base = '../alldata/NC41_'
-file_base = '../alldata/F'
+file_base = '../alldata/NC41_'
 amp_end = '_DB.csv'
 phs_end = '_P.csv'
 
-#valids = [6,9,12,15]
-#valids = ['A_NC41_3','A_NC41_AB_3','C_NC41','C_NC41_AB','C_NC41_UD']
-#labels = ['feed alone 3ft above ground','feed alone 3ft above absorber','feed in cage on ground','feed in cage on absorber','feed in cage upsidedown']
-valids = ['C_NC41','C_NC41_AB']
-labels = ['feed in cage on ground','feed in cage on absorber']
+valids = [6,9,12,15]
+labels = ['2.4m', '3.3m','4.3m','5.2m']
 
 fig, ax = p.subplots(nrows=1,ncols=1)
 for i,v in enumerate(valids):
     fq,amps = fromcsv(file_base + str(v) + amp_end)
     fq,phs = fromcsv(file_base + str(v) + phs_end)
     #bandwidth = n.where(n.logical_and(fq>.05 ,fq<.25)) #HERA bandwidth
-    #bandwidth = n.where(n.logical_and(fq>.1,fq<.2)) #PAPER bandwidth
-    bandwidth = n.where(n.logical_and(fq>.05,fq<.5)) #full bandwidth
+    bandwidth = n.where(n.logical_and(fq>.1,fq<.2)) #PAPER bandwidth
+    #bandwidth = n.where(n.logical_and(fq>.05,fq<.5)) #full bandwidth
     dw, d, tau = take_delay(amps[bandwidth], phs[bandwidth], fq[bandwidth])
 #    p.plot(tau, 10*n.log10(n.abs(dw)**2), linewidth=2, label=('%s'%v)+'ft', color=colors[i])
     ax.plot(tau, 10*n.log10(n.abs(dw)**2), linewidth=2, label=labels[i], color=colors[i])
@@ -60,6 +56,6 @@ p.ylabel('return loss (dB)')
 p.grid(1)
 p.legend()
 
-fig.subplots_adjust(left=.08, top=.95, bottom=.10,right=0.92)
+#fig.subplots_adjust(left=.08, top=.95, bottom=.10,right=0.92)
 
 p.show()
