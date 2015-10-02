@@ -3,7 +3,6 @@ import numpy as n
 import pylab as p
 import sys, csv
 import aipy as a
-import pd
 
 def fromcsv(filename):
     print 'Reading', filename
